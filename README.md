@@ -8,6 +8,6 @@ Type d'images : Présence unique du code-barres
 >Le second objectif est de trouver un code-barres dans une image quelconque d'un produit vendu en super-marchée.
 Type d'images : Présence d'un code-barres dans l'image
 
-Langage : C++
-Librairie : OpenCV
+Langage : C++ 
 
+Librairie : OpenCV
