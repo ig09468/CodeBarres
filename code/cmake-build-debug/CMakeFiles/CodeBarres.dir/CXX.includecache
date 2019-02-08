@@ -6,22 +6,18 @@
 
 #IncludeRegexTransform: 
 
-/home/meynadier/CLionProjects/CodeBarres/PreProcess.cpp
+/home/meynadier/ProjectImg/code/PreProcess.cpp
 PreProcess.h
-/home/meynadier/CLionProjects/CodeBarres/PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
 
-/home/meynadier/CLionProjects/CodeBarres/PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
 core/mat.hpp
 -
 opencv.hpp
-/home/meynadier/CLionProjects/CodeBarres/opencv.hpp
+/home/meynadier/ProjectImg/code/opencv.hpp
 iostream
 -
 string
--
-
-/home/meynadier/CLionProjects/CodeBarres/main.cpp
-iostream
 -
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp

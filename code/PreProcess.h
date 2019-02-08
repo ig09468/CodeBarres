@@ -12,10 +12,16 @@
 
 using namespace std;
 
-cv::Mat thresholdConfig(const cv::Mat& src, const int& seuil, const int& maxVal);
-cv::Mat openImg(string& src);
-cv::Mat rotation(const cv::Mat& sourceImg);
-bool modePaysage(const cv::Mat& sourceImg);
+cv::Mat openImg(string src);
 
+cv::Mat greyscale(const cv::Mat& sourceImg);
+cv::Mat thresholdAuto(const cv::Mat& src);
+
+
+cv::Mat rotation(const cv::Mat& sourceImg);
+cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize);
+
+bool modePaysage(const cv::Mat& sourceImg);
+int determinateThreshold(const cv::Mat& srcImg);
 
 #endif //CODEBARRES_PREPROCESS_H

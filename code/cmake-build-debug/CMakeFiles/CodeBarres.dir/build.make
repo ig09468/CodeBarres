@@ -43,10 +43,10 @@ RM = /opt/clion-2018.3.3/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/meynadier/CLionProjects/CodeBarres
+CMAKE_SOURCE_DIR = /home/meynadier/ProjectImg/code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/meynadier/CLionProjects/CodeBarres/cmake-build-debug
+CMAKE_BINARY_DIR = /home/meynadier/ProjectImg/code/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CodeBarres.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/CodeBarres.dir/flags.make
 
 CMakeFiles/CodeBarres.dir/main.cpp.o: CMakeFiles/CodeBarres.dir/flags.make
 CMakeFiles/CodeBarres.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CodeBarres.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeBarres.dir/main.cpp.o -c /home/meynadier/CLionProjects/CodeBarres/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CodeBarres.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeBarres.dir/main.cpp.o -c /home/meynadier/ProjectImg/code/main.cpp
 
 CMakeFiles/CodeBarres.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodeBarres.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/meynadier/CLionProjects/CodeBarres/main.cpp > CMakeFiles/CodeBarres.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/meynadier/ProjectImg/code/main.cpp > CMakeFiles/CodeBarres.dir/main.cpp.i
 
 CMakeFiles/CodeBarres.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodeBarres.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meynadier/CLionProjects/CodeBarres/main.cpp -o CMakeFiles/CodeBarres.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meynadier/ProjectImg/code/main.cpp -o CMakeFiles/CodeBarres.dir/main.cpp.s
 
 CMakeFiles/CodeBarres.dir/PreProcess.cpp.o: CMakeFiles/CodeBarres.dir/flags.make
 CMakeFiles/CodeBarres.dir/PreProcess.cpp.o: ../PreProcess.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CodeBarres.dir/PreProcess.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeBarres.dir/PreProcess.cpp.o -c /home/meynadier/CLionProjects/CodeBarres/PreProcess.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CodeBarres.dir/PreProcess.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CodeBarres.dir/PreProcess.cpp.o -c /home/meynadier/ProjectImg/code/PreProcess.cpp
 
 CMakeFiles/CodeBarres.dir/PreProcess.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CodeBarres.dir/PreProcess.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/meynadier/CLionProjects/CodeBarres/PreProcess.cpp > CMakeFiles/CodeBarres.dir/PreProcess.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/meynadier/ProjectImg/code/PreProcess.cpp > CMakeFiles/CodeBarres.dir/PreProcess.cpp.i
 
 CMakeFiles/CodeBarres.dir/PreProcess.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CodeBarres.dir/PreProcess.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meynadier/CLionProjects/CodeBarres/PreProcess.cpp -o CMakeFiles/CodeBarres.dir/PreProcess.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/meynadier/ProjectImg/code/PreProcess.cpp -o CMakeFiles/CodeBarres.dir/PreProcess.cpp.s
 
 # Object files for target CodeBarres
 CodeBarres_OBJECTS = \
@@ -110,7 +110,7 @@ CodeBarres: /usr/local/lib/libopencv_imgcodecs.so.4.0.1
 CodeBarres: /usr/local/lib/libopencv_imgproc.so.4.0.1
 CodeBarres: /usr/local/lib/libopencv_core.so.4.0.1
 CodeBarres: CMakeFiles/CodeBarres.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable CodeBarres"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable CodeBarres"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CodeBarres.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/CodeBarres.dir/clean:
 .PHONY : CMakeFiles/CodeBarres.dir/clean
 
 CMakeFiles/CodeBarres.dir/depend:
-	cd /home/meynadier/CLionProjects/CodeBarres/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/meynadier/CLionProjects/CodeBarres /home/meynadier/CLionProjects/CodeBarres /home/meynadier/CLionProjects/CodeBarres/cmake-build-debug /home/meynadier/CLionProjects/CodeBarres/cmake-build-debug /home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles/CodeBarres.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/meynadier/ProjectImg/code/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/meynadier/ProjectImg/code /home/meynadier/ProjectImg/code /home/meynadier/ProjectImg/code/cmake-build-debug /home/meynadier/ProjectImg/code/cmake-build-debug /home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles/CodeBarres.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CodeBarres.dir/depend
 

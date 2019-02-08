@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/meynadier/CLionProjects/CodeBarres/PreProcess.cpp" "/home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles/CodeBarres.dir/PreProcess.cpp.o"
-  "/home/meynadier/CLionProjects/CodeBarres/main.cpp" "/home/meynadier/CLionProjects/CodeBarres/cmake-build-debug/CMakeFiles/CodeBarres.dir/main.cpp.o"
+  "/home/meynadier/ProjectImg/code/PreProcess.cpp" "/home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles/CodeBarres.dir/PreProcess.cpp.o"
+  "/home/meynadier/ProjectImg/code/main.cpp" "/home/meynadier/ProjectImg/code/cmake-build-debug/CMakeFiles/CodeBarres.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
