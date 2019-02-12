@@ -16,6 +16,7 @@ TestPreProcess::~TestPreProcess() = default;
  * Affichage test de l'image d'origine
  */
 void TestPreProcess::testOpen(){
+    cout << "Ouverture de l'image OK" << endl;
     cv::imshow("Source Test", img);
 }
 
@@ -24,7 +25,9 @@ void TestPreProcess::testOpen(){
  * Affichage test de l'image après une modification en niveau de gris
  */
 void TestPreProcess::testGreyscale() {
+    cout << "Lancement Process : Greyscale" << endl;
     img = greyscale(img);
+    cout << "GreyScale : OK" << endl;
     cv::imshow("Greyscale Test", img);
 }
 
@@ -32,8 +35,9 @@ void TestPreProcess::testGreyscale() {
  * Affichage test de l'image après une binarisation
  */
 void TestPreProcess::testThreshold() {
-
+    cout << "Lancement Process : Threshold" << endl;
     img = thresholdAuto(img);
+    cout << "Threshold : OK" << endl;
     cv::imshow("Threshold Test",img);
 }
 
@@ -42,7 +46,9 @@ void TestPreProcess::testThreshold() {
  * Affichage test de l'image après une redimension
  */
 void TestPreProcess::testResize() {
+    cout << "Lancement Process : Resize" << endl;
     img = resize(img, maxSize);
+    cout << "Resize : OK" << endl;
     cv::imshow("Resize Test", img);
 }
 
@@ -50,6 +56,7 @@ void TestPreProcess::testResize() {
  * Fonction de lancement des test
  */
 void TestPreProcess::test(){
+    cout << "Process TEST" << endl;
     testOpen();
     testResize();
     testGreyscale();

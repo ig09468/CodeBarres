@@ -8,6 +8,9 @@
 
 #include <core/mat.hpp>
 #include "../PreProcess.h"
+#include <iostream>
+
+using namespace std;
 
 class TestPreProcess {
 public:
