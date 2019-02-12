@@ -8,6 +8,8 @@
 
 /*
  * Fonction permettant l'ouverture des images à partir d'une source
+ *
+ * src : lien direct vers l'image
  */
 cv::Mat openImg(string src){
     cv::Mat img = cv::imread(src, cv::IMREAD_ANYCOLOR);
@@ -29,7 +31,10 @@ cv::Mat thresholdAuto(const cv::Mat& srcImg){
 }
 
 /*
- * Fonction déterminant le meilleurs seuillage pour l'image
+ * Fonction déterminant le meilleurs seuillage pour l'image.
+ * Elle se base sur la moyenne inter-classe de l'histogramme de l'image.
+ *
+ * srcImg : l'image que l'on souhaite binariser
  */
 int determinateThreshold(const cv::Mat& srcImg){
     cv::Mat histogram;
@@ -38,8 +43,7 @@ int determinateThreshold(const cv::Mat& srcImg){
     float range[] = { 0, 256 };
     const float* ranges[] = { range };
 
-    calcHist(&srcImg, 1, channels, cv::Mat(), histogram, 1, histSize, ranges, true, false);
-
+    cv::calcHist(&srcImg, 1, channels, cv::Mat(), histogram, 1, histSize, ranges, true, false);
     long numberOfPixels = srcImg.rows*srcImg.cols;
     int threshold, bestThreshold=0;
     double numb=0, numf=0, sumb=0, sumf=0, bestValue=0, wb, wf, mb, mf, current;
@@ -91,31 +95,66 @@ cv::Mat rotation(const cv::Mat& sourceImg){
 }
  */
 
-
+/*
+ * Fonction permettant de transformer une image en couleur vers une image en niveau de gris
+ * sourceImg : l'image que l'on souhaite transformer
+ */
 cv::Mat greyscale(const cv::Mat& sourceImg){
     cv::Mat greyImg;
     cv::cvtColor(sourceImg,greyImg,cv::COLOR_RGB2GRAY);
     return greyImg;
 }
 
+
+/*
+ * Fonction permettant de déterminer, le type d'orientation de l'image (Paysage ou Portrait)
+ * sourceImg : l'image dont on souhaite déterminer l'orientation
+ */
 bool modePaysage(const cv::Mat& sourceImg){
     return sourceImg.rows > sourceImg.cols;
 }
 
-
+/*
+ * Fonction pour modifier la taille d'une image en fonction d'une valeur maximal donner.
+ * Calcul la nouvelle dimension en fonction de l'ancienne taille de l'image.
+ * sourceImg : l'image que l'on souhaite modifier
+ * maxSize : la taille maximal en fonction de la position de l'image (Portrait ou Paysage)
+ *
+ */
 cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     cv::Mat resizeImg;
-    double aspectRatio = (double)sourceImg.rows/(double)sourceImg.cols;
+    double aspectRatio = sourceImg.rows/sourceImg.cols;
     int newSize;
     if(modePaysage(sourceImg)){
-         newSize = (int)((double)maxSize / aspectRatio);
+         newSize = maxSize / aspectRatio;
         cv::resize(sourceImg,resizeImg,cv::Size(maxSize, newSize));
     }else{
-        newSize = (int)((double)maxSize * aspectRatio);
+        newSize = (maxSize * aspectRatio);
         cv::resize(sourceImg, resizeImg, cv::Size(newSize,maxSize));
     }
     return resizeImg;
 }
 
+cv::Mat gradientX(cv::Mat& srcImg){
+    cv::Mat gradientX;
+    cv::Sobel(srcImg,gradientX,1,0,7);
+    return gradientX;
+}
+
+cv::Mat gradientY(cv::Mat& srcImg){
+    cv::Mat gradientY;
+    cv::Sobel(srcImg,gradientY,0,1,7);
+    return gradientY;
+}
+/*
+cv::Mat gradientDirection(cv::Mat& srcimg){
+
+    cv::Mat gdtX = gradientX(srcimg);
+    cv::Mat gdtY = gradientY(srcimg);
+
+    const int Ndir = 8;
 
 
+    for (int )
+}
+*/
