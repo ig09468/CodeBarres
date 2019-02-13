@@ -22,6 +22,8 @@ private:
     void testResize();
     void testThreshold();
     void testOpen();
+    void testRotate();
+    void testRollingBall();
 
     cv::Mat img;
     int maxSize;

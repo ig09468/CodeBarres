@@ -32,6 +32,26 @@ void TestPreProcess::testGreyscale() {
 }
 
 /*
+ * Affichage test de la rotation d'une image
+ */
+void TestPreProcess::testRotate() {
+    cout << "Lancement Process : Rotate" << endl;
+    //img = rotation(img);
+    cv::imshow("Rotate Test", img);
+}
+
+/*
+ * Affichage test de l'image après un RollingBall
+ */
+void TestPreProcess::testRollingBall() {
+    cout << "Lancement Process : RollingBall" << endl;
+    //img = rollingBall(img);
+    cv::imshow("RollingBall Test" ,img);
+
+}
+
+
+/*
  * Affichage test de l'image après une binarisation
  */
 void TestPreProcess::testThreshold() {
@@ -63,3 +83,5 @@ void TestPreProcess::test(){
     testThreshold();
     cv::waitKey(0);
 }
+
+

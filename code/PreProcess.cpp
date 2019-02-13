@@ -22,11 +22,11 @@ cv::Mat openImg(string src){
  * qu'une valeur maximale
  *
  */
-cv::Mat thresholdAuto(const cv::Mat& srcImg){
+cv::Mat thresholdAuto(const cv::Mat& sourceImg){
     cv::Mat destination;
     const int maximumVal = 255;
-    int seuillage = determinateThreshold(srcImg);
-    cv::threshold(srcImg, destination, seuillage, maximumVal, cv::THRESH_BINARY);
+    int seuillage = determinateThreshold(sourceImg);
+    cv::threshold(sourceImg, destination, seuillage, maximumVal, cv::THRESH_BINARY);
     return destination;
 }
 
@@ -135,26 +135,3 @@ cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     return resizeImg;
 }
 
-cv::Mat gradientX(cv::Mat& srcImg){
-    cv::Mat gradientX;
-    cv::Sobel(srcImg,gradientX,1,0,7);
-    return gradientX;
-}
-
-cv::Mat gradientY(cv::Mat& srcImg){
-    cv::Mat gradientY;
-    cv::Sobel(srcImg,gradientY,0,1,7);
-    return gradientY;
-}
-/*
-cv::Mat gradientDirection(cv::Mat& srcimg){
-
-    cv::Mat gdtX = gradientX(srcimg);
-    cv::Mat gdtY = gradientY(srcimg);
-
-    const int Ndir = 8;
-
-
-    for (int )
-}
-*/
