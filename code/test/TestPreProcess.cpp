@@ -36,7 +36,7 @@ void TestPreProcess::testGreyscale() {
  */
 void TestPreProcess::testRotate() {
     cout << "Lancement Process : Rotate" << endl;
-    //img = rotation(img);
+    img = rotation(img,-90);
     cv::imshow("Rotate Test", img);
 }
 
@@ -80,6 +80,7 @@ void TestPreProcess::test(){
     testOpen();
     testResize();
     testGreyscale();
+    testRotate();
     testThreshold();
     cv::waitKey(0);
 }

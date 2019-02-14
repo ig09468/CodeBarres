@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test/TestPreProcess.o: test/TestPreProcess.cpp.o
+
+.PHONY : test/TestPreProcess.o
+
+# target to build an object file
+test/TestPreProcess.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestPreProcess.cpp.o
+.PHONY : test/TestPreProcess.cpp.o
+
+test/TestPreProcess.i: test/TestPreProcess.cpp.i
+
+.PHONY : test/TestPreProcess.i
+
+# target to preprocess a source file
+test/TestPreProcess.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestPreProcess.cpp.i
+.PHONY : test/TestPreProcess.cpp.i
+
+test/TestPreProcess.s: test/TestPreProcess.cpp.s
+
+.PHONY : test/TestPreProcess.s
+
+# target to generate assembly for a file
+test/TestPreProcess.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestPreProcess.cpp.s
+.PHONY : test/TestPreProcess.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test/TestPreProcess.o"
+	@echo "... test/TestPreProcess.i"
+	@echo "... test/TestPreProcess.s"
 .PHONY : help
 
 

@@ -36,15 +36,9 @@ cv::Mat thresholdAuto(const cv::Mat& sourceImg){
  *
  * srcImg : l'image que l'on souhaite binariser
  */
-int determinateThreshold(const cv::Mat& srcImg){
-    cv::Mat histogram;
-    int channels[] = { 0 };
-    int histSize[] = { 256 };
-    float range[] = { 0, 256 };
-    const float* ranges[] = { range };
-
-    cv::calcHist(&srcImg, 1, channels, cv::Mat(), histogram, 1, histSize, ranges, true, false);
-    long numberOfPixels = srcImg.rows*srcImg.cols;
+int determinateThreshold(const cv::Mat& sourceImg){
+    cv::Mat histogram = calculHistogram(sourceImg);
+    long numberOfPixels = sourceImg.rows*sourceImg.cols;
     int threshold, bestThreshold=0;
     double numb=0, numf=0, sumb=0, sumf=0, bestValue=0, wb, wf, mb, mf, current;
     for(int i=0; i<histogram.rows;i++)
@@ -78,22 +72,18 @@ int determinateThreshold(const cv::Mat& srcImg){
 
 }
 
-/*
 
-cv::Mat rotation(const cv::Mat& sourceImg){
+cv::Mat rotation(const cv::Mat& sourceImg, int angle){
+
     const int rows = sourceImg.rows;
     const int cols = sourceImg.cols;
-    cv::Mat rotateImg;
-    if(modePaysage(sourceImg)){
-        return sourceImg;
-    }else{
-        cv::getRotationMatrix2D(cv::Point(rows/2,cols/2),90,1);
-        cv::warpAffine(sourceImg,rotateImg,cv::Point(cols,rows));
-        return rotateImg;
-    }
 
+    cv::Mat rotateImg;
+    cv::Mat matRotation = cv::getRotationMatrix2D(cv::Point(rows/2,cols/2),angle,1);
+    cv::warpAffine(sourceImg,rotateImg,matRotation,sourceImg.size());
+
+    return rotateImg;
 }
- */
 
 /*
  * Fonction permettant de transformer une image en couleur vers une image en niveau de gris
@@ -135,3 +125,15 @@ cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     return resizeImg;
 }
 
+cv::Mat calculHistogram(const cv::Mat& sourceImg){
+    cv::Mat histogram, eqHist;
+    int channels[] = { 0 };
+    int histSize[] = { 256 };
+    float range[] = { 0, 256 };
+    const float* ranges[] = { range };
+    cv::calcHist(&sourceImg, 1, channels, cv::Mat(), histogram, 1, histSize, ranges, true, false);
+
+    //cv::equalizeHist(histogram,eqHist);
+
+    return histogram;
+}
