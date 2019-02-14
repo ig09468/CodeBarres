@@ -21,6 +21,8 @@ Type d'images : Présence d'un code-barres dans l'image
 1. Paramètres
 - Type d'image 
 >Image d'un simple code-barres orienté dans n'importe qu'elle direction
+- Qualité de l'image
+> Propre sans défaut, code-barres parfait
 2. Techniques
 - Application d'une transformée de Hough pour obtenir les lignes
 - Application d'une rotation de l'image pour obtenir des lignes verticales ou horizontales
@@ -34,12 +36,12 @@ Type d'images : Présence d'un code-barres dans l'image
 ### Web
 
 1. Pré-traitements:
-- https://sites.google.com/site/lizantchristopher/services/binarisation-1
-- https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0
-- https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/
+- [Binarisation](https://sites.google.com/site/lizantchristopher/services/binarisation-1)
+- [Rolling Ball](https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0)
+- [Rotation](https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/)
 
 2. Nomenclature Code-Barres:
-- https://fr.wikipedia.org/wiki/Code-barres_EAN
+- [EAN](https://fr.wikipedia.org/wiki/Code-barres_EAN)
 
 ### Livres
 
