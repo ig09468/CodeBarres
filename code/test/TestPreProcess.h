@@ -24,6 +24,7 @@ private:
     void testOpen();
     void testRotate();
     void testRollingBall();
+    void testHough();
 
     cv::Mat img;
     int maxSize;

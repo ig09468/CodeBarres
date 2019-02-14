@@ -125,6 +125,7 @@ cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     return resizeImg;
 }
 
+
 cv::Mat calculHistogram(const cv::Mat& sourceImg){
     cv::Mat histogram, eqHist;
     int channels[] = { 0 };
@@ -136,4 +137,24 @@ cv::Mat calculHistogram(const cv::Mat& sourceImg){
     //cv::equalizeHist(histogram,eqHist);
 
     return histogram;
+}
+
+
+/*
+ * Fonction permettant de calculer la transformer de Hough
+ * sourceImg : Image source dont on veut calculer la transformer
+ * TODO Appliquer la méthode de la transformer de Hough et retourner une image de cette transformer
+ */
+cv::Mat Hough(const cv::Mat& sourceImg){
+    return sourceImg;
+}
+
+
+/*
+ * Fonction permettant l'égalisation du fond de l'image
+ * sourceImg : Image source dont on veut modifier le fond
+ * TODO Appliquer la méthode du RollingBall décrit dans l'article dont le lien est dans le readme.md
+ */
+cv::Mat rollingBall(const cv::Mat& sourceImg){
+    return sourceImg;
 }

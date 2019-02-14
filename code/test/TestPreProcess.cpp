@@ -43,11 +43,11 @@ void TestPreProcess::testRotate() {
 /*
  * Affichage test de l'image après un RollingBall
  */
-void TestPreProcess::testRollingBall() {
-    cout << "Lancement Process : RollingBall" << endl;
-    //img = rollingBall(img);
-    cv::imshow("RollingBall Test" ,img);
-
+void TestPreProcess::testRollingBall(){
+    cout << "Lancement Process : Rolling Ball" << endl;
+    img = rollingBall(img);
+    cout << "Rolling Ball : OK" << endl;
+    cv::imshow("Rolling Ball",img);
 }
 
 
@@ -72,6 +72,15 @@ void TestPreProcess::testResize() {
     cv::imshow("Resize Test", img);
 }
 
+
+void TestPreProcess::testHough(){
+    cout << "Lancement Process : Hough" << endl;
+    img = Hough(img, maxSize);
+    cout << "Hough : OK" << endl;
+    cv::imshow("Hough", img);
+}
+
+
 /*
  * Fonction de lancement des test
  */
@@ -80,6 +89,8 @@ void TestPreProcess::test(){
     testOpen();
     testResize();
     testGreyscale();
+    //testRollingBall();
+    //testHough();
     testRotate();
     testThreshold();
     cv::waitKey(0);
