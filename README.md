@@ -1,5 +1,7 @@
 # CodeBarres
 
+## Résumé
+
 Projet de reconnaissance des codes-barres dans le cadre de l'UE Traitement de l'image à Paris Descartes.
 Le but du projet est de savoir lire un code-barres ainsi que détecter la zone où se situe le code-barres.
 
@@ -8,14 +10,14 @@ Type d'images : Présence unique du code-barres
 >Le second objectif est de trouver un code-barres dans une image quelconque d'un produit vendu en super-marchée.
 Type d'images : Présence d'un code-barres dans l'image
 
-Langage : C++ 
+## Technologies
 
-Librairie : OpenCV
+1. Langage C++ : https://devdocs.io/cpp/
+2. Librairie OpenCV : https://docs.opencv.org/4.0.1/
 
+## Sources
 
-# Sources
-
-## Web :
+### Web :
 
 1. Pré-traitements:
 - https://sites.google.com/site/lizantchristopher/services/binarisation-1
@@ -25,6 +27,8 @@ Librairie : OpenCV
 2. Nomenclature Code-Barres:
 - https://fr.wikipedia.org/wiki/Code-barres_EAN
 
-## Livres :
+### Livres :
 
-- Traitement de l'image et de la vidéo, Rachid Belaroussi
+- Traitement de l'image et de la vidéo, Rachid Belaroussi (2010)
+- Introduction au traitement d'images, Diane Lingrand (2004)
+- Introduction au traitement mathématique des images - méthodes déterministes, Maïtine Bergounioux (2015)
