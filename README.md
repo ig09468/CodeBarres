@@ -12,8 +12,8 @@ Type d'images : Présence d'un code-barres dans l'image
 
 ## Technologies
 
-1. Langage C++ : https://devdocs.io/cpp/
-2. Librairie OpenCV : https://docs.opencv.org/4.0.1/
+1. [Langage C++](https://devdocs.io/cpp/)
+2. [Librairie OpenCV](https://docs.opencv.org/4.0.1/)
 
 ## Objectifs
 
