@@ -19,7 +19,8 @@ Type d'images : Présence d'un code-barres dans l'image
 
 ### Etape 1
 1. Paramètres
-- Type d'image > Image d'un simple code-barres orienté dans n'importe qu'elle direction
+- Type d'image 
+>Image d'un simple code-barres orienté dans n'importe qu'elle direction
 2. Techniques
 - Application d'une transformée de Hough pour obtenir les lignes
 - Application d'une rotation de l'image pour obtenir des lignes verticales ou horizontales
