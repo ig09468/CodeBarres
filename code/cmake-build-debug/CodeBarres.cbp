@@ -88,6 +88,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/meynadier/ProjectImg/code/EAN.h">
+			<Option target="CodeBarres"/>
+		</Unit>
 		<Unit filename="/home/meynadier/ProjectImg/code/PreProcess.cpp">
 			<Option target="CodeBarres"/>
 		</Unit>
