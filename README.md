@@ -23,8 +23,9 @@ Type d'images : Présence d'un code-barres dans l'image
 2. Techniques
 - Application d'une transformée de Hough pour obtenir les lignes
 - Application d'une rotation de l'image pour obtenir des lignes verticales ou horizontales
-- Calcul du ratio de dimension de l'image par rapport à la bar minimal du code-barres
+- Calcul du ratio de redimension de l'image par rapport à la bar minimal du code-barres
 - Application du ratio à la redimension de l'image en fonction de l'orientation de l'image (Paysage ou Portrait)
+- Récupération d'une portion du code-barres pour accélérer la lecture
 - Lecture du code-barres en fonction de la nomenclature EAN
 
 ## Sources
