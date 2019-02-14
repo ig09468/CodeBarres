@@ -15,16 +15,16 @@ Librairie : OpenCV
 
 < Sources >
 
-Web :
+## Web :
 
-Pré-traitements:
+1. Pré-traitements:
 - https://sites.google.com/site/lizantchristopher/services/binarisation-1
 - https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0
 - https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/
 
-Nomenclature Code-Barres:
+2. Nomenclature Code-Barres:
 - https://fr.wikipedia.org/wiki/Code-barres_EAN
 
-Livres :
+## Livres :
 
 - Traitement de l'image et de la vidéo, Rachid Belaroussi
