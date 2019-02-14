@@ -15,9 +15,21 @@ Type d'images : Présence d'un code-barres dans l'image
 1. Langage C++ : https://devdocs.io/cpp/
 2. Librairie OpenCV : https://docs.opencv.org/4.0.1/
 
+## Objectifs
+
+### Etape 1
+1. Paramètres
+- Type d'image > Image d'un simple code-barres orienté dans n'importe qu'elle direction
+2. Techniques
+- Application d'une transformée de Hough pour obtenir les lignes
+- Application d'une rotation de l'image pour obtenir des lignes verticales ou horizontales
+- Calcul du ratio de dimension de l'image par rapport à la bar minimal du code-barres
+- Application du ratio à la redimension de l'image en fonction de l'orientation de l'image (Paysage ou Portrait)
+- Lecture du code-barres en fonction de la nomenclature EAN
+
 ## Sources
 
-### Web :
+### Web
 
 1. Pré-traitements:
 - https://sites.google.com/site/lizantchristopher/services/binarisation-1
@@ -27,7 +39,7 @@ Type d'images : Présence d'un code-barres dans l'image
 2. Nomenclature Code-Barres:
 - https://fr.wikipedia.org/wiki/Code-barres_EAN
 
-### Livres :
+### Livres
 
 - Traitement de l'image et de la vidéo, Rachid Belaroussi (2010)
 - Introduction au traitement d'images, Diane Lingrand (2004)
