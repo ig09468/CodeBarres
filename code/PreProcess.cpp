@@ -145,7 +145,7 @@ cv::Mat calculHistogram(const cv::Mat& sourceImg){
  * sourceImg : Image source dont on veut calculer la transformer
  * TODO Appliquer la méthode de la transformer de Hough et retourner une image de cette transformer
  */
-cv::Mat Hough(const cv::Mat& sourceImg){
+cv::Mat hough(const cv::Mat& sourceImg){
     return sourceImg;
 }
 

@@ -75,7 +75,7 @@ void TestPreProcess::testResize() {
 
 void TestPreProcess::testHough(){
     cout << "Lancement Process : Hough" << endl;
-    img = Hough(img, maxSize);
+    img = hough(img);
     cout << "Hough : OK" << endl;
     cv::imshow("Hough", img);
 }
