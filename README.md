@@ -82,6 +82,7 @@ Type d'images : Présence d'un code-barres dans l'image
 ### Web
 
 1. Pré-traitements:
+- [Egalisation d'un histogramme](https://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_equalization/histogram_equalization.html)
 - [Binarisation](https://sites.google.com/site/lizantchristopher/services/binarisation-1)
 - [Rolling Ball](https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0)
 - [Rotation](https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/)
