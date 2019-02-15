@@ -74,8 +74,7 @@ Type d'images : Présence d'un code-barres dans l'image
 - Type d'images
 >Photos contenant plusieurs codes-barres sur un fond quelconques (produits) et non délimité
 - Qualité de l'image
->Propre avec un éclairage normal
->Mauvais éclairage
+>Propre avec un éclairage normal puis mauvais éclairage
 
 ## Sources
 
