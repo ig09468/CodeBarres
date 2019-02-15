@@ -64,16 +64,18 @@ Type d'images : Présence d'un code-barres dans l'image
 
 1. Paramètres
 - Type d'images
->Image contenant plusieurs code-barres dans l'image
+>Image contenant plusieurs code-barres dans l'image sur fond **blanc**
 - Qualité de l'image
->Image propre et code-barres facilement repairable
+>Propre sans autres contenues
 
 ### Etape 6
 
 1. Paramètres
 - Type d'images
->Image contenant un code sur un fond quelconques et non délimité
-
+>Photos contenant plusieurs codes-barres sur un fond quelconques (produits) et non délimité
+- Qualité de l'image
+>Propre avec un éclairage normal
+>Mauvais éclairage
 
 ## Sources
 
