@@ -20,7 +20,7 @@ Type d'images : Présence d'un code-barres dans l'image
 ### Etape 1
 1. Paramètres
 - Type d'image 
->Image d'un simple code-barres orienté dans n'importe qu'elle direction
+>Image d'un simple code-barres orienté dans n'importe quelle direction sur fond **blanc**
 - Qualité de l'image
 > Propre sans défaut, code-barres parfait
 2. Techniques
@@ -31,6 +31,50 @@ Type d'images : Présence d'un code-barres dans l'image
 - Récupération d'une portion du code-barres pour accélérer la lecture
 - Lecture du code-barres en fonction de la nomenclature EAN
 
+
+### Etape 2
+
+1. Paramètres
+- Type d'images
+>Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond
+- Qualité de l'image
+>Mauvais éclairage
+2. Technique
+- Application de la technique du Rolling Ball
+
+### Etape 3
+
+1. Paramètres
+- Type d'images
+>Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
+- Qualité de l'image
+>Photo propre puis mauvais éclairage
+
+
+### Etape 4
+
+1. Paramètres
+- Type d'images
+>Photo contenant l'ensemble du produit et son code-barres
+- Qualité de l'image
+>Propre éclairage normal et mauvais éclairage
+
+
+### Etape 5
+
+1. Paramètres
+- Type d'images
+>Image contenant plusieurs code-barres dans l'image
+- Qualité de l'image
+>Image propre et code-barres facilement repairable
+
+### Etape 6
+
+1. Paramètres
+- Type d'images
+>Image contenant un code sur un fond quelconques et non délimité
+
+
 ## Sources
 
 ### Web
@@ -39,7 +83,7 @@ Type d'images : Présence d'un code-barres dans l'image
 - [Binarisation](https://sites.google.com/site/lizantchristopher/services/binarisation-1)
 - [Rolling Ball](https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0)
 - [Rotation](https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/)
-
+- [Transformée de Hough](http://www.f-legrand.fr/scidoc/docimg/image/extraction/hough/hough.html)
 2. Nomenclature Code-Barres:
 - [EAN](https://fr.wikipedia.org/wiki/Code-barres_EAN)
 
