@@ -36,7 +36,7 @@ Type d'images : Présence d'un code-barres dans l'image
 
 1. Paramètres
 - Type d'images
->Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond
+>Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
 - Qualité de l'image
 >Mauvais éclairage
 2. Technique

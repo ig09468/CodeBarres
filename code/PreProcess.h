@@ -25,5 +25,7 @@ cv::Mat hough(const cv::Mat& sourceImg);
 bool modePaysage(const cv::Mat& sourceImg);
 int determinateThreshold(const cv::Mat& sourceImg);
 cv::Mat calculHistogram(const cv::Mat& sourceImg);
+cv::Mat generateKernel(int radius);
+cv::Mat rectifValue(cv::Mat sourceImg);
 
 #endif //CODEBARRES_PREPROCESS_H

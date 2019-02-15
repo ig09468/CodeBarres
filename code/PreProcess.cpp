@@ -158,3 +158,23 @@ cv::Mat hough(const cv::Mat& sourceImg){
 cv::Mat rollingBall(const cv::Mat& sourceImg){
     return sourceImg;
 }
+
+/*
+ * Fonction permettant de générer le kernel (ball) pour le rollingball
+ * radius : périmètre de la ball
+ * TODO Générer correctement un kernel de la dimension voulu, en lui attribuant ses valeurs complètes dans toute sa matrice
+ */
+cv::Mat generateKernel(int radius){
+    cv::Mat kernel;
+    return kernel;
+}
+
+/*
+ * Fonction permettant de réctifier les valeurs optimales qui sont au delà de 255 et inférieur à 0
+ * sourceImg : Imagesource auquel on veut appliquer la modification
+ * TODO Vérifier que dans la matrice les valeurs sont bien comprises entre 255 et 0
+ */
+
+cv::Mat rectifValue(cv::Mat sourceImg){
+    return sourceImg;
+}
