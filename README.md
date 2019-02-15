@@ -84,7 +84,7 @@ Type d'images : Présence d'un code-barres dans l'image
 - [Egalisation d'un histogramme](https://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_equalization/histogram_equalization.html)
 - [Binarisation](https://sites.google.com/site/lizantchristopher/services/binarisation-1)
 - [Rolling Ball](https://www.researchgate.net/publication/319985119_New_method_of_automated_statistical_analysis_of_polymer-stabilized_metal_nanoparticles_in_electron_microscopy_images?fbclid=IwAR19denWsMt2ku8asMTI8tl5yu2kpgI7JIgNsm5QD5_fOuUWfR5L21qJuq0) 
-- Rotation : [Image Search](https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/) - [OpenCV Tuto C++](https://www.opencv-srf.com/2010/09/rotating-images.html)
+- Rotation : [Image Search](https://www.pyimagesearch.com/2017/01/02/rotate-images-correctly-with-opencv-and-python/) - [OpenCV Tuto C++](https://www.opencv-srf.com/2010/09/rotating-images.html) - [Geometric Transformations of Image](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html)
 - [Transformée de Hough](http://www.f-legrand.fr/scidoc/docimg/image/extraction/hough/hough.html)
 2. Nomenclature Code-Barres:
 - [EAN](https://fr.wikipedia.org/wiki/Code-barres_EAN)
