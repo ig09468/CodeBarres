@@ -13,6 +13,9 @@
  */
 cv::Mat openImg(string src){
     cv::Mat img = cv::imread(src, cv::IMREAD_ANYCOLOR);
+    if(img.empty()){
+        std::cerr << "Erreur d'ouverture de l'image" << endl;
+    }
     return img;
 }
 
