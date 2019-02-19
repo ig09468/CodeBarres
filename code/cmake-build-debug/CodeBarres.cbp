@@ -97,6 +97,12 @@
 		<Unit filename="/home/meynadier/ProjectImg/code/PreProcess.h">
 			<Option target="CodeBarres"/>
 		</Unit>
+		<Unit filename="/home/meynadier/ProjectImg/code/Process.cpp">
+			<Option target="CodeBarres"/>
+		</Unit>
+		<Unit filename="/home/meynadier/ProjectImg/code/Process.h">
+			<Option target="CodeBarres"/>
+		</Unit>
 		<Unit filename="/home/meynadier/ProjectImg/code/main.cpp">
 			<Option target="CodeBarres"/>
 		</Unit>

@@ -150,6 +150,33 @@ PreProcess.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/PreProcess.cpp.s
 .PHONY : PreProcess.cpp.s
 
+Process.o: Process.cpp.o
+
+.PHONY : Process.o
+
+# target to build an object file
+Process.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/Process.cpp.o
+.PHONY : Process.cpp.o
+
+Process.i: Process.cpp.i
+
+.PHONY : Process.i
+
+# target to preprocess a source file
+Process.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/Process.cpp.i
+.PHONY : Process.cpp.i
+
+Process.s: Process.cpp.s
+
+.PHONY : Process.s
+
+# target to generate assembly for a file
+Process.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/Process.cpp.s
+.PHONY : Process.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -216,6 +243,9 @@ help:
 	@echo "... PreProcess.o"
 	@echo "... PreProcess.i"
 	@echo "... PreProcess.s"
+	@echo "... Process.o"
+	@echo "... Process.i"
+	@echo "... Process.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -19,10 +19,10 @@ bool isBlack(const int& value){
 int searchStart(const cv::Mat& barCode){
     for(int cols = 0 ; cols < barCode.cols ; cols++) {
         const int pixel = barCode.at<uchar>(cols);
-        if (!isBlack(pixel)) {
+        if (!isBlack(pixel))
             continue;
-        }
-        return cols+3;
+        else
+            return cols+3;
     }
 }
 
@@ -66,14 +66,10 @@ int convertByteToEAN(const vector<int>& convert){
         case ean::NEUFB:
             return 9;
         default:
-            cout << "Erreur de byte" << endl;
+            cout << "Erreur de lecture" << endl;
             return -1;
     }
-
-
 }
-
-
 
 /*
  * TODO Terminer la fonction de lecture pour qu'elle puisse prendre en compte le délimiteur central
