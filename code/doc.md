@@ -11,11 +11,11 @@ Ouverture d'une image en couleur à partir d'un url source.
 - arg : 
 
     
-    string src : chemin absolue vers l'image source  
+    `string src : chemin absolue vers l'image source`  
 - retour :
 
 
-    Mat img : la matrice représentant l'image en RGB
+    `Mat img : la matrice représentant l'image en RGB`
     
   
 ### cv::Mat greyscale(const cv::Mat& sourceImg)
@@ -24,11 +24,11 @@ Transformation d'une image en couleur vers une image en niveau de gris
 - arg :
 
 
-    const cv::Mat& sourceImg : image en RGB
+    `const cv::Mat& sourceImg : image en RGB`
 - retour :
 
 
-    Mat img : image convertie en niveau de gris
+    `Mat img : image convertie en niveau de gris`
     
  
 ### cv::Mat thresholdAuto(const cv::Mat& sourceImg)
@@ -37,11 +37,10 @@ Binarisation détermine automatiquement par le seuillage OTSU ([Binarisation](ht
 - arg :
 
 
-    const cv::Mat& sourceImg : image en niveau de gris 
+`const cv::Mat& sourceImg : image en niveau de gris` 
 - retour :
 
-
-    Mat img : image après binarisation
+`Mat img : image après binarisation`
     
     
     
@@ -51,8 +50,9 @@ Rotation d'une image à partir d'un angle
 - arg :
 
 
-    const cv::Mat& sourceImg : image de n'importe quel type
-    int angle : angle de rotation en degré
+  `const cv::Mat& sourceImg : image de n'importe quel type`
+  
+  `int angle : angle de rotation en degré`
 
 - retour :
 
