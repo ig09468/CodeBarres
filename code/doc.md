@@ -88,7 +88,7 @@ Harmonisation de l'éclairage d'une image
 `Mat img : image dont le fond est harmonisé`
     
     
-###cv::Mat hough(const cv::Mat& sourceImg)
+### cv::Mat hough(const cv::Mat& sourceImg)
 ?
 - arg :
 
@@ -98,7 +98,7 @@ Harmonisation de l'éclairage d'une image
 
 `Mat img : image de la transformée de Hough`
     
-####cv::Mat calculHistogram(const cv::Mat& sourceImg)
+### cv::Mat calculHistogram(const cv::Mat& sourceImg)
 
 Détermine l'histogramme d'une image
 - arg :
@@ -109,7 +109,7 @@ Détermine l'histogramme d'une image
 
 `Mat img :`
 
-####cv::Mat generateKernel(int radius)
+#### cv::Mat generateKernel(int radius)
 
 Génère le noyau d'un filtre à partir de son rayon
 - arg :
