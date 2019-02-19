@@ -2,6 +2,8 @@
 
 ## PreProcess
 
+Ensemble de fonctions permettants d'appliquer des transformations à une image
+
 
 ### cv::Mat openImg(string src)
 
