@@ -2,7 +2,7 @@
 
 ## PreProcess
 
-####cv::Mat openImg(string src)
+###cv::Mat openImg(string src)
 Ouverture d'une image en couleur à partir d'un url source.
 - arg : 
 
@@ -12,7 +12,7 @@ Ouverture d'une image en couleur à partir d'un url source.
 
 
     Mat img : la matrice représentant l'image en RGB
-####cv::Mat greyscale(const cv::Mat& sourceImg)
+###cv::Mat greyscale(const cv::Mat& sourceImg)
 Transformation d'une image en couleur vers une image en niveau de gris
 - arg :
 
@@ -22,7 +22,7 @@ Transformation d'une image en couleur vers une image en niveau de gris
 
 
     Mat img : image convertie en niveau de gris
-####cv::Mat thresholdAuto(const cv::Mat& sourceImg)
+###cv::Mat thresholdAuto(const cv::Mat& sourceImg)
 Binarisation détermine automatiquement par le seuillage OTSU ([Binarisation](https://sites.google.com/site/lizantchristopher/services/binarisation-1))
 - arg :
 
@@ -32,7 +32,7 @@ Binarisation détermine automatiquement par le seuillage OTSU ([Binarisation](ht
 
 
     Mat img : image après binarisation
-####cv::Mat rotation(const cv::Mat& sourceImg, int angle)
+###cv::Mat rotation(const cv::Mat& sourceImg, int angle)
 Rotation d'une image à partir d'un angle
 - arg :
 
@@ -43,7 +43,7 @@ Rotation d'une image à partir d'un angle
 
     
     Mat img : image après transformation
-####cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize)
+###cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize)
 Redimension de l'image à partir d'une taille maximale en fonction de l'orientation (Portrait ou Paysage)
 - arg :
 
@@ -54,7 +54,7 @@ Redimension de l'image à partir d'une taille maximale en fonction de l'orientat
 
 
     Mat img : image redimensionnée à la taille "maxSize"
-####cv::Mat rollingBall(const cv::Mat& sourceImg)
+###cv::Mat rollingBall(const cv::Mat& sourceImg)
 Harmonisation de l'éclairage d'une image
 - arg :
 
@@ -64,7 +64,7 @@ Harmonisation de l'éclairage d'une image
 
 
     Mat img : image dont le fond est harmonisé
-####cv::Mat hough(const cv::Mat& sourceImg)
+###cv::Mat hough(const cv::Mat& sourceImg)
 ?
 - arg :
     
