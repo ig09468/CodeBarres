@@ -100,8 +100,6 @@ Harmonisation de l'éclairage d'une image
     
 ####cv::Mat calculHistogram(const cv::Mat& sourceImg)
 
-
-
 Détermine l'histogramme d'une image
 - arg :
 
@@ -111,12 +109,7 @@ Détermine l'histogramme d'une image
 
 `Mat img :`
 
-
-
-
 ####cv::Mat generateKernel(int radius)
-
-
 
 Génère le noyau d'un filtre à partir de son rayon
 - arg :
