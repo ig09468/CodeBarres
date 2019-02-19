@@ -11,11 +11,11 @@ Ouverture d'une image en couleur à partir d'un url source.
 - arg : 
 
     
-    `string src : chemin absolue vers l'image source`  
+`string src : chemin absolue vers l'image source`  
+
 - retour :
 
-
-    `Mat img : la matrice représentant l'image en RGB`
+`Mat img : la matrice représentant l'image en RGB`
     
   
 ### cv::Mat greyscale(const cv::Mat& sourceImg)
@@ -24,11 +24,11 @@ Transformation d'une image en couleur vers une image en niveau de gris
 - arg :
 
 
-    `const cv::Mat& sourceImg : image en RGB`
+`const cv::Mat& sourceImg : image en RGB`
+
 - retour :
 
-
-    `Mat img : image convertie en niveau de gris`
+`Mat img : image convertie en niveau de gris`
     
  
 ### cv::Mat thresholdAuto(const cv::Mat& sourceImg)
@@ -50,14 +50,14 @@ Rotation d'une image à partir d'un angle
 - arg :
 
 
-  `const cv::Mat& sourceImg : image de n'importe quel type`
+`const cv::Mat& sourceImg : image de n'importe quel type`
   
-  `int angle : angle de rotation en degré`
+`int angle : angle de rotation en degré`
 
 - retour :
 
     
-    Mat img : image après transformation
+`Mat img : image après transformation`
 
 
 
@@ -68,45 +68,35 @@ Redimension de l'image à partir d'une taille maximale en fonction de l'orientat
 
 - arg :
 
-
-    const cv::Mat& sourceImg : image de n'importe quel type
-    const int& maxSize : nouvelle taille maximale
+`const cv::Mat& sourceImg : image de n'importe quel type`
+  
+`const int& maxSize : nouvelle taille maximale`
 
 - retour
 
-
-    Mat img : image redimensionnée à la taille "maxSize"
-    
+`Mat img : image redimensionnée à la taille "maxSize"`    
     
 ### cv::Mat rollingBall(const cv::Mat& sourceImg)
-
 
 Harmonisation de l'éclairage d'une image
 - arg :
 
-
-    const cv::Mat& sourceImg : image en niveau de gris
-
+`const cv::Mat& sourceImg : image en niveau de gris`
 
 - retour :
 
-
-    Mat img : image dont le fond est harmonisé
+`Mat img : image dont le fond est harmonisé`
     
     
 ###cv::Mat hough(const cv::Mat& sourceImg)
 ?
 - arg :
-    
-    
-    const cv::Mat& sourceImg : image en niveau de gris
+
+`const cv::Mat& sourceImg : image en niveau de gris`
 
 - retour :
 
-
-    Mat img : image de la transformée de Hough
-    
-    
+`Mat img : image de la transformée de Hough`
     
 ####cv::Mat calculHistogram(const cv::Mat& sourceImg)
 
@@ -115,12 +105,11 @@ Harmonisation de l'éclairage d'une image
 Détermine l'histogramme d'une image
 - arg :
 
+`const cv::Mat& sourceImg : `
 
-    const cv::Mat& sourceImg : 
 - retour :
 
-
-    Mat img :
+`Mat img :`
 
 
 
@@ -132,9 +121,8 @@ Détermine l'histogramme d'une image
 Génère le noyau d'un filtre à partir de son rayon
 - arg :
 
+`int radius : Rayon du filtre`
 
-    int radius : Rayon du filtre
 - retour :
     
-    
-    Mat kernel : Noyau du filtre
+`Mat kernel : Noyau du filtre`
