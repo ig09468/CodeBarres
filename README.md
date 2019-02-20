@@ -36,9 +36,9 @@ Type d'images : Présence d'un code-barres dans l'image
 
 1. Paramètres
 - Type d'images
->Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
+> Photo d'un simple code-barres orientée correctement sur fond quelconque
 - Qualité de l'image
->Mauvais éclairage
+> Mauvais éclairage
 2. Technique
 - Application de la technique du Rolling Ball
 
@@ -46,9 +46,9 @@ Type d'images : Présence d'un code-barres dans l'image
 
 1. Paramètres
 - Type d'images
->Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
+> Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
 - Qualité de l'image
->Photo propre puis mauvais éclairage
+> Mauvais éclairage
 
 
 ### Etape 4
