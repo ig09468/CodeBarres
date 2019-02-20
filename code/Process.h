@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int readingEAN(cv::Mat& barCode, const int& number);
+vector<int> readingEAN(cv::Mat& barCode, const int& number);
 
 
 int searchStart(const cv::Mat& sourceImg);
