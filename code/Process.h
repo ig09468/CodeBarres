@@ -6,7 +6,7 @@
 #define CODEBARRES_PROCESS_H
 
 
-#include <core/mat.hpp>
+#include <opencv2/core/mat.hpp>
 #include <iostream>
 #include "EAN.h"
 

@@ -6,7 +6,7 @@
 #define CODEBARRES_TEST_H
 
 
-#include <core/mat.hpp>
+#include <opencv2/core/mat.hpp>
 #include "../PreProcess.h"
 #include <iostream>
 
