@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/CodeBarres.dir/PreProcess.cpp.o"
   "CMakeFiles/CodeBarres.dir/test/TestPreProcess.cpp.o"
   "CMakeFiles/CodeBarres.dir/Process.cpp.o"
+  "CMakeFiles/CodeBarres.dir/test/TestProcess.cpp.o"
   "CodeBarres.pdb"
   "CodeBarres"
 )

@@ -231,6 +231,33 @@ test/TestPreProcess.cpp.s:
 	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestPreProcess.cpp.s
 .PHONY : test/TestPreProcess.cpp.s
 
+test/TestProcess.o: test/TestProcess.cpp.o
+
+.PHONY : test/TestProcess.o
+
+# target to build an object file
+test/TestProcess.cpp.o:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestProcess.cpp.o
+.PHONY : test/TestProcess.cpp.o
+
+test/TestProcess.i: test/TestProcess.cpp.i
+
+.PHONY : test/TestProcess.i
+
+# target to preprocess a source file
+test/TestProcess.cpp.i:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestProcess.cpp.i
+.PHONY : test/TestProcess.cpp.i
+
+test/TestProcess.s: test/TestProcess.cpp.s
+
+.PHONY : test/TestProcess.s
+
+# target to generate assembly for a file
+test/TestProcess.cpp.s:
+	$(MAKE) -f CMakeFiles/CodeBarres.dir/build.make CMakeFiles/CodeBarres.dir/test/TestProcess.cpp.s
+.PHONY : test/TestProcess.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +279,9 @@ help:
 	@echo "... test/TestPreProcess.o"
 	@echo "... test/TestPreProcess.i"
 	@echo "... test/TestPreProcess.s"
+	@echo "... test/TestProcess.o"
+	@echo "... test/TestProcess.i"
+	@echo "... test/TestProcess.s"
 .PHONY : help
 
 

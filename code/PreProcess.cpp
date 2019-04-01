@@ -29,7 +29,8 @@ cv::Mat thresholdAuto(const cv::Mat& sourceImg){
     cv::Mat destination;
     const int maximumVal = 255;
     int seuillage = determinateThreshold(sourceImg);
-    cv::threshold(sourceImg, destination, seuillage, maximumVal, cv::THRESH_BINARY);
+//    cv::threshold(sourceImg, destination, seuillage, maximumVal, cv::THRESH_BINARY);
+    cv::threshold(sourceImg, destination, 80, maximumVal, cv::THRESH_BINARY);
     return destination;
 }
 
@@ -74,6 +75,9 @@ int determinateThreshold(const cv::Mat& sourceImg){
     return bestThreshold;
 
 }
+
+
+
 
 
 cv::Mat rotation(const cv::Mat& sourceImg, int angle){

@@ -12,11 +12,12 @@
 
 using namespace std;
 
-vector<int> readingEAN(cv::Mat& barCode, const int& number);
+vector<int> readingEAN(const cv::Mat& barCode, const int& row);
 
-
-int searchStart(const cv::Mat& sourceImg);
-int convertByteToEAN(const vector<int>& convert);
+double searchRatio(const cv::Mat& sourceImg, const int& row);
+int searchFirstDelimiter(const cv::Mat &barCode, const int &row);
+int searchStartBarCode(const cv::Mat &barCode, const int &row);
+vector<int> convertByteToEAN(const vector<int>& convert);
 bool isBlack(const int& value);
 
 

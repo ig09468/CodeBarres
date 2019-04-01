@@ -6,37 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/meynadier/ProjectImg/code/PreProcess.cpp
-PreProcess.h
-/home/meynadier/ProjectImg/code/PreProcess.h
+/home/meynadier/ProjectImg/code/EAN.h
 
-/home/meynadier/ProjectImg/code/PreProcess.h
-core/mat.hpp
+/home/meynadier/ProjectImg/code/Process.h
+opencv2/core/mat.hpp
 -
+iostream
+-
+EAN.h
+/home/meynadier/ProjectImg/code/EAN.h
+
+/home/meynadier/ProjectImg/code/test/TestProcess.cpp
+TestProcess.h
+/home/meynadier/ProjectImg/code/test/TestProcess.h
+
+/home/meynadier/ProjectImg/code/test/TestProcess.h
 opencv.hpp
-/home/meynadier/ProjectImg/code/opencv.hpp
-iostream
 -
-string
--
-
-/home/meynadier/ProjectImg/code/main.cpp
-iostream
--
-test/TestPreProcess.h
-/home/meynadier/ProjectImg/code/test/TestPreProcess.h
-
-/home/meynadier/ProjectImg/code/test/TestPreProcess.cpp
-TestPreProcess.h
-/home/meynadier/ProjectImg/code/test/TestPreProcess.h
-
-/home/meynadier/ProjectImg/code/test/TestPreProcess.h
 core/mat.hpp
 -
-../PreProcess.h
-/home/meynadier/ProjectImg/code/PreProcess.h
+imgproc.hpp
+-
 iostream
 -
+../Process.h
+/home/meynadier/ProjectImg/code/Process.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

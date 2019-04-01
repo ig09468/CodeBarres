@@ -112,6 +112,12 @@
 		<Unit filename="/home/meynadier/ProjectImg/code/test/TestPreProcess.h">
 			<Option target="CodeBarres"/>
 		</Unit>
+		<Unit filename="/home/meynadier/ProjectImg/code/test/TestProcess.cpp">
+			<Option target="CodeBarres"/>
+		</Unit>
+		<Unit filename="/home/meynadier/ProjectImg/code/test/TestProcess.h">
+			<Option target="CodeBarres"/>
+		</Unit>
 		<Unit filename="/home/meynadier/ProjectImg/code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
