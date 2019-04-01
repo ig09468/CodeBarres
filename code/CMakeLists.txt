@@ -8,7 +8,7 @@ find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CodeBarres main.cpp PreProcess.cpp PreProcess.h test/TestPreProcess.cpp test/TestPreProcess.h EAN.h Process.cpp Process.h)
+add_executable(CodeBarres main.cpp PreProcess.cpp PreProcess.h test/TestPreProcess.cpp test/TestPreProcess.h EAN.h Process.cpp Process.h test/TestProcess.cpp test/TestProcess.h)
 
 
 include_directories(${OpenCV_INCLUDE_DIR})

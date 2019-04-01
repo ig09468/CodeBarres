@@ -89,10 +89,10 @@ void TestPreProcess::test(){
     testOpen();
     testResize();
     testGreyscale();
+    testThreshold();
     //testRollingBall();
     //testHough();
-    testRotate();
-    testThreshold();
+    //testRotate();
     cv::waitKey(0);
 }
 
