@@ -24,17 +24,18 @@ int searchFirstDelimiter(const cv::Mat &barCode, const int &row){
     }
 }
 
-int searchStartBarCode(const cv::Mat &barCode, const int& row){
-    int start = searchFirstDelimiter(barCode, row);
-    int colsRoam = 0;
+int searchStartBarCode(const cv::Mat &barCode, const int& row, const int& start, const double& ratio){
+    int colsRoam = 1;
+    int taille = (((1.0/ratio))-(int)(1.0/ratio)) > 0.5 ? ((int)(1.0/ratio))+1 : (int)(1.0/ratio);
     bool colorColumnIsBlack = true;
-    for(int  cols = start ; cols < barCode.cols/2 ; cols++){
+    for(int  cols = start ; cols < barCode.cols/2 ; cols+=taille){
         const int pixel = barCode.at<uchar>(row,cols);
         if(colsRoam == 3){
             return cols;
         }else{
             if(isBlack(pixel) != colorColumnIsBlack){
                 colsRoam++;
+                colorColumnIsBlack=isBlack(pixel);
             }
         }
     }
@@ -121,39 +122,45 @@ vector<int> convertByteToEAN(const vector<int>& bar){
 }
 
 /*
- * TODO Terminer la fonction de lecture pour qu'elle puisse prendre en compte le délimiteur central
+ * Fonction permettant la lecture d'un code-barre horizontal
+ * barCode : image centrée sur le code-barres
+ * row : ligne de lecture du code-barres
  */
 vector<int> readingEAN(const cv::Mat& barCode, const int& row){
 
     vector<int> convert;
     //Taille de la colonne actuellement visitée
-    double colSize = 0;
+    double colSize = 1;
 
-    double tailleBar;
+    double tailleBar=0;
 
     //Boolean vérifiant la couleur actuelle de la barre en cours
-    bool colorColumnIsBlack = true;
+    bool colorColumnIsBlack = false;
 
     //Ratio par rapport à la taille des barres
     double ratio = searchRatio(barCode, row);
+    std::cout << " Ratio : " << ratio << endl;
 
 
 
-    for(int cols = searchStartBarCode(barCode,row) ; cols <  barCode.cols; cols++){
+    for(int cols = searchStartBarCode(barCode,row, searchFirstDelimiter(barCode, row),ratio) ; cols <  barCode.cols; cols++){
         const int pixel = barCode.at<uchar>(row, cols);
+
         if(convert.size() == 53){
             break;
         }
-        if(convert.size() > 24 && convert.size() < 30){
-            convert.push_back(-1);
-            colorColumnIsBlack = true;
-        }
         if(isBlack(pixel) != colorColumnIsBlack){
+            if(convert.size() > 23 && convert.size() < 29){
+                convert.push_back(-1);
+                colSize=1;
+                colorColumnIsBlack=isBlack(pixel);
+                continue;
+            }
             tailleBar = (colSize*ratio);
             if((tailleBar-(int)tailleBar) > 0.5){
-                convert.push_back(((int)(colSize*ratio)+1));
+                convert.push_back((int)(tailleBar+1));
             } else{
-                convert.push_back(((int)(colSize*ratio)));
+                convert.push_back((int)(tailleBar));
             }
             colSize=1;
             colorColumnIsBlack=isBlack(pixel);

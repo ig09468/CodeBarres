@@ -8,62 +8,62 @@
 
 
 TestProcess::TestProcess() {
-    this->img = cv::Mat(150,350,CV_8U,255);
+    this->img = cv::Mat(150,400,CV_8U,255);
 
     //Generation du délimiteur
     cv::rectangle(this->img,cv::Point(3,0),cv::Point(6,150),0,-1);
     cv::rectangle(this->img,cv::Point(11,0),cv::Point(14,150),0,-1);
 
-    //Génération du 9
+    //Génération du 9 (3 1 1 2)
     cv::rectangle(this->img,cv::Point(27,0),cv::Point(30,130),0,-1);
     cv::rectangle(this->img,cv::Point(35,0),cv::Point(43,130),0,-1);
-    //Génération du 0
-    cv::rectangle(this->img,cv::Point(48,0),cv::Point(52,130),0,-1);
-    cv::rectangle(this->img,cv::Point(42,0),cv::Point(50,130),0,-1);
-    //Génération du 1
-    cv::rectangle(this->img,cv::Point(57,0),cv::Point(64,130),0,-1);
-    cv::rectangle(img,cv::Point(74,0),cv::Point(81,130),0,-1);
-    //Génération du 2
-    cv::rectangle(this->img,cv::Point(90,0),cv::Point(93,130),0,-1);
-    cv::rectangle(this->img,cv::Point(98,0),cv::Point(101,130),0,-1);
-    //Génération du 3
-    cv::rectangle(this->img,cv::Point(106,0),cv::Point(119,130),0,-1);
-    cv::rectangle(this->img,cv::Point(124,0),cv::Point(127,130),0,-1);
-    //Génération du 4
-    cv::rectangle(this->img,cv::Point(139,0),cv::Point(150,130),0,-1);
-    cv::rectangle(this->img,cv::Point(64,0),cv::Point(65,130),0,-1);
+    //Génération du 0 (1 1 2 3)
+    cv::rectangle(this->img,cv::Point(48,0),cv::Point(51,130),0,-1);
+    cv::rectangle(this->img,cv::Point(60,0),cv::Point(71,130),0,-1);
+    //Génération du 1 (1 2 2 2)
+    cv::rectangle(this->img,cv::Point(76,0),cv::Point(83,130),0,-1);
+    cv::rectangle(img,cv::Point(93,0),cv::Point(100,130),0,-1);
+    //Génération du 2 (2 1 2 2)
+    cv::rectangle(this->img,cv::Point(108,0),cv::Point(111,130),0,-1);
+    cv::rectangle(this->img,cv::Point(120,0),cv::Point(127,130),0,-1);
+    //Génération du 3 (1 4 1 1)
+    cv::rectangle(this->img,cv::Point(132,0),cv::Point(147,130),0,-1);
+    cv::rectangle(this->img,cv::Point(152,0),cv::Point(155,130),0,-1);
+    //Génération du 4 (2 3 1 1)
+    cv::rectangle(this->img,cv::Point(164,0),cv::Point(175,130),0,-1);
+    cv::rectangle(this->img,cv::Point(180,0),cv::Point(183,130),0,-1);
+
+    //Génération du délimiteur (1 1 1 1 1)
+    cv::rectangle(this->img,cv::Point(188,0),cv::Point(191,150),0,-1);
+    cv::rectangle(this->img,cv::Point(196,0),cv::Point(199,150),0,-1);
+
+    //Génération du 1 (2 2 2 1)
+    cv::rectangle(this->img,cv::Point(204,0),cv::Point(211,130),0,-1);
+    cv::rectangle(this->img,cv::Point(220,0),cv::Point(227,130),0,-1);
+
+    //Génération du 2 (2 1 2 2)
+    cv::rectangle(this->img,cv::Point(232,0),cv::Point(239,130),0,-1);
+    cv::rectangle(this->img,cv::Point(244,0),cv::Point(251,130),0,-1);
+
+    //Génération du 3 (1 4 1 1)
+    cv::rectangle(this->img,cv::Point(260,0),cv::Point(263,130),0,-1);
+    cv::rectangle(this->img,cv::Point(280,0),cv::Point(283,130),0,-1);
+
+    //Génération du 4 (1 1 3 2)
+    cv::rectangle(this->img,cv::Point(288,0),cv::Point(291,130),0,-1);
+    cv::rectangle(this->img,cv::Point(296,0),cv::Point(307,130),0,-1);
+
+    //Génération du 5 (1 2 3 1)
+    cv::rectangle(this->img,cv::Point(316,0),cv::Point(319,130),0,-1);
+    cv::rectangle(this->img,cv::Point(328,0),cv::Point(339,130),0,-1);
+
+    //Génération du 7 (1 3 1 2)
+    cv::rectangle(this->img,cv::Point(344,0),cv::Point(347,130),0,-1);
+    cv::rectangle(this->img,cv::Point(362,0),cv::Point(365,130),0,-1);
 
     //Génération du délimiteur
-    cv::rectangle(this->img,cv::Point(155,0),cv::Point(158,150),0,-1);
-    cv::rectangle(this->img,cv::Point(163,0),cv::Point(166,150),0,-1);
-
-    //Génération du 1
-    cv::rectangle(this->img,cv::Point(171,0),cv::Point(178,130),0,-1);
-    cv::rectangle(this->img,cv::Point(187,0),cv::Point(194,130),0,-1);
-
-    //Génération du 2
-    cv::rectangle(this->img,cv::Point(199,0),cv::Point(202,130),0,-1);
-    cv::rectangle(this->img,cv::Point(211,0),cv::Point(218,130),0,-1);
-
-    //Génération du 3
-    cv::rectangle(this->img,cv::Point(223,0),cv::Point(234,130),0,-1);
-    cv::rectangle(this->img,cv::Point(239,0),cv::Point(242,130),0,-1);
-
-    //Génération du 4
-    cv::rectangle(this->img,cv::Point(247,0),cv::Point(250,130),0,-1);
-    cv::rectangle(this->img,cv::Point(262,0),cv::Point(269,130),0,-1);
-
-    //Génération du 5
-    cv::rectangle(this->img,cv::Point(274,0),cv::Point(281,130),0,-1);
-    cv::rectangle(this->img,cv::Point(293,0),cv::Point(296,130),0,-1);
-
-    //Génération du 7
-    cv::rectangle(this->img,cv::Point(301,0),cv::Point(312,130),0,-1);
-    cv::rectangle(this->img,cv::Point(316,0),cv::Point(323,130),0,-1);
-
-    //Génération du délimiteur
-    cv::rectangle(this->img,cv::Point(331,0),cv::Point(334,150),0,-1);
-    cv::rectangle(this->img,cv::Point(339,0),cv::Point(342,150),0,-1);
+    cv::rectangle(this->img,cv::Point(374,0),cv::Point(377,150),0,-1);
+    cv::rectangle(this->img,cv::Point(382,0),cv::Point(385,150),0,-1);
 
 
     cv::imshow("Test 1",img);
@@ -104,6 +104,14 @@ bool TestProcess::testSearchFirstDelimiter() {
     std::cout << "Test de searchFirstDelimiter() : ";
     int colStart = searchFirstDelimiter(this->img, 1);
     return colStart == 3;
+}
+
+bool TestProcess::testSearchStartBarCode(){
+    std::cout << "Test de searchStartBarCode() : ";
+    int startDelimiter = searchFirstDelimiter(this->img,1);
+    double ratio = searchRatio(this->img, 1);
+    int test = searchStartBarCode(this->img,1,startDelimiter,ratio);
+    return 15 == test;
 }
 
 bool TestProcess::testConvertToEAN(){
@@ -147,6 +155,7 @@ void TestProcess::start() {
     std::cout << "----- " << testIsBlack() << " -----" <<  endl
     << "----- " << testSearchRatio() << " -----" << endl
     << "----- " << testSearchFirstDelimiter() << " -----" << endl
+    << "----- " << testSearchStartBarCode() << " -----"<< endl
     << "----- " << testConvertToEAN() << " -----" << endl
     << "----- " << testReadingEAN() << " -----" << endl;
 }

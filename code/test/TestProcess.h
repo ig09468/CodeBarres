@@ -17,9 +17,9 @@ private:
     bool testSearchRatio();
     bool testIsBlack();
     bool testSearchFirstDelimiter();
+    bool testSearchStartBarCode();
     bool testReadingEAN();
     bool testConvertToEAN();
-
 public:
     TestProcess();
     virtual ~TestProcess();

@@ -16,7 +16,7 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row);
 
 double searchRatio(const cv::Mat& sourceImg, const int& row);
 int searchFirstDelimiter(const cv::Mat &barCode, const int &row);
-int searchStartBarCode(const cv::Mat &barCode, const int &row);
+int searchStartBarCode(const cv::Mat &barCode, const int &row, const int& start, const double& ratio);
 vector<int> convertByteToEAN(const vector<int>& convert);
 bool isBlack(const int& value);
 
