@@ -17,7 +17,7 @@ TestPreProcess::~TestPreProcess() = default;
  */
 void TestPreProcess::testOpen(){
     cout << "Ouverture de l'image OK" << endl;
-    cv::imshow("Source Test", img);
+    //cv::imshow("Source Test", img);
 }
 
 
@@ -28,7 +28,7 @@ void TestPreProcess::testGreyscale() {
     cout << "Lancement Process : Greyscale" << endl;
     img = greyscale(img);
     cout << "GreyScale : OK" << endl;
-    cv::imshow("Greyscale Test", img);
+    //cv::imshow("Greyscale Test", img);
 }
 
 /*
@@ -44,8 +44,8 @@ void TestPreProcess::testRotate() {
  * Affichage test de l'image après un RollingBall
  */
 void TestPreProcess::testRollingBall(){
-    cout << "Lancement Process : Rolling Ball" << endl;
-    img = rollingBall(img);
+	cout << "Lancement Process : Rolling Ball" << endl;
+    img = rollingBall(img, 200);
     cout << "Rolling Ball : OK" << endl;
     cv::imshow("Rolling Ball",img);
 }
@@ -87,11 +87,11 @@ void TestPreProcess::testHough(){
 void TestPreProcess::test(){
     cout << "Process TEST" << endl;
     testOpen();
-    testResize();
-    testGreyscale();
-    testThreshold();
-    //testRollingBall();
-    //testHough();
+	testResize();
+	testGreyscale();
+	testRollingBall();
+	//testThreshold();
+	//testHough();
     //testRotate();
     cv::waitKey(0);
 }

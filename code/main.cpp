@@ -12,11 +12,11 @@ int main(int argc, char *argv[]) {
         ss << "../img/" << argv[1];
         src = ss.str();
     } else {
-        src = "E:\Fac\M1\S2\CodeBarres\img\etp2\E2.jpg";
+        src = "E:/Fac/M1/S2/CodeBarres/img/etp2/E2.jpg";
     }
-    //TestPreProcess *test = new TestPreProcess(src, 512);
-    //test->test();
-    TestProcess test = TestProcess();
-    test.start();
+	TestPreProcess *test = new TestPreProcess(src, 512);
+    test->test();
+    //TestProcess test = TestProcess();
+    //test.start();
     return 0;
 }

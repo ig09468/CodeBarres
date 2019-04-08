@@ -158,22 +158,34 @@ cv::Mat hough(const cv::Mat& sourceImg){
 
 
 /*
- * Fonction permettant l'égalisation du fond de l'image
- * sourceImg : Image source dont on veut modifier le fond
- * TODO Appliquer la méthode du RollingBall décrit dans l'article dont le lien est dans le readme.md
+ * calculate the background of an image using rolling ball algorithm
+ * @param : radius, size of the ball to apply
+ * returns : background of the image
  */
-cv::Mat rollingBall(const cv::Mat& sourceImg){
-    return sourceImg;
+cv::Mat getBackground(const cv::Mat& sourceImg, int radius) {
+
+	int rows = sourceImg.cols, cols = sourceImg.rows;
+	cv::Mat background = cv::Mat::zeros(sourceImg.size(), sourceImg.type());
+	cv::Rect kernel;
+
+	for (int row = 0; row < rows; row++) {
+		for (int col = 0; col < cols; col++) {
+			kernel = cv::Rect(cv::Point(max(0, row - radius/2), max(0, col - radius / 2)), cv::Point(min( rows, row + radius / 2), min(cols, col + radius)));
+			string name = col + ", " + row;
+			int result = cv::sum(sourceImg(kernel))[0];
+			result /= kernel.area();
+			background.at<uchar>(col, row) = result;
+		}
+	}cv::imshow("background", background);
+    return background;
 }
 
-/*
- * Fonction permettant de générer le kernel (ball) pour le rollingball
- * radius : périmètre de la ball
- * TODO Générer correctement un kernel de la dimension voulu, en lui attribuant ses valeurs complètes dans toute sa matrice
- */
-cv::Mat generateKernel(int radius){
-    cv::Mat kernel;
-    return kernel;
+cv::Mat rollingBall(const cv::Mat& sourceImg, const int& radius) {
+	cv::Mat background = getBackground(sourceImg, radius);
+
+	cv::Mat result = sourceImg + background;
+
+	return result;
 }
 
 /*
