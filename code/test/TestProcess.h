@@ -5,9 +5,9 @@
 #ifndef CODEBARRES_TESTPROCESS_H
 #define CODEBARRES_TESTPROCESS_H
 
-#include <opencv.hpp>
-#include <core/mat.hpp>
-#include <imgproc.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/mat.hpp>
+#include <opencv2/imgproc.hpp>
 #include <iostream>
 #include "../Process.h"
 
