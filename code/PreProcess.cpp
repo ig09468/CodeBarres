@@ -3,7 +3,7 @@
 //
 
 #include "PreProcess.h"
-
+#include <math.h>
 
 
 /*
@@ -162,28 +162,74 @@ cv::Mat hough(const cv::Mat& sourceImg){
  * @param : radius, size of the ball to apply
  * returns : background of the image
  */
-cv::Mat getBackground(const cv::Mat& sourceImg, int radius) {
-
+cv::Mat getBackground(const cv::Mat& sourceImg,const int& radius) {
+	cout << "1";
 	int rows = sourceImg.cols, cols = sourceImg.rows;
-	cv::Mat background = cv::Mat::zeros(sourceImg.size(), sourceImg.type());
+	cv::Mat background = cv::Mat::zeros(sourceImg.size(), CV_8U);
 	cv::Rect kernel;
+	std::vector<std::vector<bool>> ball = std::vector<std::vector<bool>>(2 * (radius +1));
+	for (int i = - radius ; i <= radius; i++) {
+		cout << endl;
+		ball[i+radius] = vector<bool>(2 * (radius+1), false);
+		for (int j = - radius ; j <= radius; j++) {
+			if (sqrt(i*i + j * j) <= radius) {
+				ball[i + radius][j + radius] = true;
 
+			}
+		}
+	}
+
+	cout << "max row :" << rows << ", max cols : " << cols << endl;
 	for (int row = 0; row < rows; row++) {
 		for (int col = 0; col < cols; col++) {
-			kernel = cv::Rect(cv::Point(max(0, row - radius/2), max(0, col - radius / 2)), cv::Point(min( rows, row + radius / 2), min(cols, col + radius)));
-			string name = col + ", " + row;
-			int result = cv::sum(sourceImg(kernel))[0];
-			result /= kernel.area();
+			//Determinate the size of the box we are going to apply the ball on
+			int a = max(0, row - 2 *radius);
+			int b = max(0, col - 2* radius);
+			int c = min(rows,row + 2* radius);
+			int d = min(cols, col + 2* radius);
+
+			int ball_row_inc, ball_row_dec, ball_col_inc, ball_col_dec;
+
+			row - radius < 0 ? ball_row_inc = radius - row: ball_row_inc = 0;
+			col - radius < 0 ? ball_col_inc = radius - col : ball_col_inc = 0;
+			row + radius > rows ? ball_row_dec = (row + radius) - rows : ball_row_dec = 0;
+			col + radius > rows ? ball_col_dec = (col + radius) - cols : ball_col_dec = 0;
+			kernel = cv::Rect(cv::Point(a, b), cv::Point(c,d));
+			int result = 0;
+			int area_tmp = 0;
+
+			for (int x = ball_row_inc; x < 2 * radius - ball_row_dec; x++) {
+				for (int y = ball_col_inc; y < 2 * radius - ball_col_dec; y++) {
+					if (ball[x][y]) {
+						result += sourceImg(kernel).at<uchar>( x +radius, y +radius);
+						area_tmp++;
+					}
+				}
+			}
+
+			result /= area_tmp;
 			background.at<uchar>(col, row) = result;
 		}
-	}cv::imshow("background", background);
+	}
+	cv::imshow("background", background);
     return background;
 }
 
 cv::Mat rollingBall(const cv::Mat& sourceImg, const int& radius) {
 	cv::Mat background = getBackground(sourceImg, radius);
+	int rows = sourceImg.cols, cols = sourceImg.rows;
 
-	cv::Mat result = sourceImg + background;
+	int max = 0;
+	for (int row = 0; row < rows; row++) {
+		for (int col = 0; col < cols; col++) {
+			int val = sourceImg.at<uchar>(col, row) + background.at<uchar>(col, row);
+			if (val > max) {
+				max = val;
+			}
+		}
+	}
+	cout << "MAX VAL = " << max;
+	cv::Mat result = 255 * (sourceImg + background) / max;
 
 	return result;
 }

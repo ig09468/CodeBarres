@@ -28,7 +28,7 @@ void TestPreProcess::testGreyscale() {
     cout << "Lancement Process : Greyscale" << endl;
     img = greyscale(img);
     cout << "GreyScale : OK" << endl;
-    //cv::imshow("Greyscale Test", img);
+    cv::imshow("Greyscale Test", img);
 }
 
 /*
@@ -38,14 +38,14 @@ void TestPreProcess::testRotate() {
     cout << "Lancement Process : Rotate" << endl;
     img = rotation(img,-90);
     cv::imshow("Rotate Test", img);
-}
+} 
 
 /*
  * Affichage test de l'image après un RollingBall
  */
 void TestPreProcess::testRollingBall(){
 	cout << "Lancement Process : Rolling Ball" << endl;
-    img = rollingBall(img, 200);
+    img = rollingBall(img, 5);
     cout << "Rolling Ball : OK" << endl;
     cv::imshow("Rolling Ball",img);
 }
@@ -69,7 +69,7 @@ void TestPreProcess::testResize() {
     cout << "Lancement Process : Resize" << endl;
     img = resize(img, maxSize);
     cout << "Resize : OK" << endl;
-    cv::imshow("Resize Test", img);
+    //cv::imshow("Resize Test", img);
 }
 
 
@@ -87,7 +87,7 @@ void TestPreProcess::testHough(){
 void TestPreProcess::test(){
     cout << "Process TEST" << endl;
     testOpen();
-	testResize();
+	//testResize();
 	testGreyscale();
 	testRollingBall();
 	//testThreshold();
