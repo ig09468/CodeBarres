@@ -3,6 +3,7 @@
 #include <iostream>
 #include "test/TestPreProcess.h"
 #include "test/TestProcess.h"
+#include "Process.h"
 
 int main(int argc, char *argv[]) {
     string src;
@@ -12,11 +13,13 @@ int main(int argc, char *argv[]) {
         ss << "../img/" << argv[1];
         src = ss.str();
     } else {
-        src = "E:/Fac/M1/S2/CodeBarres/img/before.jpg";
+        src = "/home/meynadier/ProjectImg/img/etp2/E2.jpg";
     }
-	TestPreProcess *test = new TestPreProcess(src, 512);
-    test->test();
-    //TestProcess test = TestProcess();
-    //test.start();
+    //TestProcess testProcess = TestProcess();
+    //testProcess.start();
+    //TestPreProcess test = TestPreProcess(src, 1000);
+    //test.test();
+
+
     return 0;
 }

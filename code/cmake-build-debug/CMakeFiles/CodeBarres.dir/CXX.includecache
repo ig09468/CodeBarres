@@ -8,6 +8,16 @@
 
 /home/meynadier/ProjectImg/code/EAN.h
 
+/home/meynadier/ProjectImg/code/PreProcess.h
+opencv2/core/mat.hpp
+-
+opencv2/opencv.hpp
+/home/meynadier/ProjectImg/code/opencv2/opencv.hpp
+iostream
+-
+string
+-
+
 /home/meynadier/ProjectImg/code/Process.h
 opencv2/core/mat.hpp
 -
@@ -16,16 +26,34 @@ iostream
 EAN.h
 /home/meynadier/ProjectImg/code/EAN.h
 
-/home/meynadier/ProjectImg/code/test/TestProcess.cpp
-TestProcess.h
+/home/meynadier/ProjectImg/code/main.cpp
+string
+-
+sstream
+-
+iostream
+-
+test/TestPreProcess.h
+/home/meynadier/ProjectImg/code/test/TestPreProcess.h
+test/TestProcess.h
 /home/meynadier/ProjectImg/code/test/TestProcess.h
+Process.h
+/home/meynadier/ProjectImg/code/Process.h
+
+/home/meynadier/ProjectImg/code/test/TestPreProcess.h
+opencv2/core/mat.hpp
+-
+../PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
+iostream
+-
 
 /home/meynadier/ProjectImg/code/test/TestProcess.h
-opencv.hpp
+opencv2/opencv.hpp
 -
-core/mat.hpp
+opencv2/core/mat.hpp
 -
-imgproc.hpp
+opencv2/imgproc.hpp
 -
 iostream
 -

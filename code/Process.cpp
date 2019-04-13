@@ -138,8 +138,9 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
     bool colorColumnIsBlack = false;
 
     //Ratio par rapport à la taille des barres
+
     double ratio = searchRatio(barCode, row);
-    std::cout << " Ratio : " << ratio << endl;
+    std::cout << "Ratio : " << ratio << endl;
 
 
 
@@ -168,10 +169,6 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
             colSize++;
         }
 
-    }
-    std::cout << "Valeur du vecteur trouvé avant convert : ";
-    for(int value : convert){
-        std::cout << value << ",";
     }
     return convertByteToEAN(convert);
 }

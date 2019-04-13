@@ -66,7 +66,7 @@ TestProcess::TestProcess() {
     cv::rectangle(this->img,cv::Point(382,0),cv::Point(385,150),0,-1);
 
 
-    cv::imshow("Test 1",img);
+    cv::imshow("Test code-barres : 90123412345",img);
     cv::waitKey(0);
 
 }
@@ -111,7 +111,14 @@ bool TestProcess::testSearchStartBarCode(){
     int startDelimiter = searchFirstDelimiter(this->img,1);
     double ratio = searchRatio(this->img, 1);
     int test = searchStartBarCode(this->img,1,startDelimiter,ratio);
-    return 15 == test;
+    if(15 == test){
+        std::cout << "Succes ! ";
+        return true;
+    }else{
+        std::cout << "Failed ! ";
+        return false;
+    }
+
 }
 
 bool TestProcess::testConvertToEAN(){
@@ -127,6 +134,7 @@ bool TestProcess::testConvertToEAN(){
             return false;
         }
     }
+    std::cout << "Succes ! ";
     return true;
 }
 
@@ -148,6 +156,7 @@ bool TestProcess::testReadingEAN() {
             return false;
         }
     }
+    std::cout << "Succes ! ";
     return true;
 }
 
