@@ -7,6 +7,11 @@
 #include <unistd.h>
 
 string TEST_IMAGE = "etp2/cb1.jpg";
+string SEP = "/";
+
+#ifdef _WIN32
+    SEP = '\\';
+#endif
 
 int main(int argc, char *argv[]) {
     string src;
@@ -14,7 +19,7 @@ int main(int argc, char *argv[]) {
 
     char cwd[100000];
     getcwd(cwd, sizeof(cwd));
-    ss << cwd << "/../img/" << TEST_IMAGE;
+    ss << cwd << SEP << ".." << SEP << "img" << SEP << TEST_IMAGE;
     src = ss.str();
 
     //TestProcess testProcess = TestProcess();
