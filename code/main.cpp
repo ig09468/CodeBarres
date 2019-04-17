@@ -4,17 +4,19 @@
 #include "test/TestPreProcess.h"
 #include "test/TestProcess.h"
 #include "Process.h"
+#include <unistd.h>
+
+string TEST_IMAGE = "etp2/cb1.jpg";
 
 int main(int argc, char *argv[]) {
     string src;
+    stringstream ss;
 
-    if (argc > 1) {
-        stringstream ss;
-        ss << "../img/" << argv[1];
-        src = ss.str();
-    } else {
-        src = "/home/meynadier/ProjectImg/img/etp2/cb1.jpg";
-    }
+    char cwd[100000];
+    getcwd(cwd, sizeof(cwd));
+    ss << cwd << "/../img/" << TEST_IMAGE;
+    src = ss.str();
+
     //TestProcess testProcess = TestProcess();
     //testProcess.start();
     //TestPreProcess test = TestPreProcess(src, 512);
