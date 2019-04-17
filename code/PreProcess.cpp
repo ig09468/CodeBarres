@@ -227,7 +227,8 @@ cv::Mat gradient(const cv::Mat& gray){
 }
 
 /*
- * Fonction de traitement à appliquer après binarisation
+ * Fonction de floutage permettant d'élargir les barres du code barres pour obtenir un seul bloque
+ * gray : image en niveau de gris
  */
 cv::Mat binaryBlur(const cv::Mat& gray){
     cv::Mat blur,binary_blur;
@@ -242,19 +243,27 @@ cv::Mat binaryBlur(const cv::Mat& gray){
     return binary_blur;
 }
 
-cv::Mat closeTraitement(const cv::Mat &binary_blur, int imgRows, int imgCols){
+
+/*
+ * Fonction executant plusieurs Fermetures successives pour faire disparaitre les éléments n'étant pas des codes-barres
+ * binary_blur : image binaire après traitement de floutage
+ */
+cv::Mat closeTraitement(const cv::Mat &binary_blur){
     cv::Mat close;
-    cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, imgRows < imgCols ? cv::Size(21,7) : cv::Size(7,21));
+    cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, binary_blur.rows < binary_blur.cols ? cv::Size(21,7) : cv::Size(7,21));
     cv::morphologyEx(binary_blur,close,cv::MORPH_CLOSE,kernel);
 
-    cv::Mat kernel_second = cv::getStructuringElement(cv::MORPH_RECT, imgRows < imgCols ? cv::Size(21,7) : cv::Size(7,21)  );
+    cv::Mat kernel_second = cv::getStructuringElement(cv::MORPH_RECT, binary_blur.rows < binary_blur.cols ? cv::Size(21,7) : cv::Size(7,21)  );
     cv::erode(close,close,kernel_second,cv::Point(-1,-1),4);
     cv::dilate(close,close,kernel_second,cv::Point(-1,-1),4);
 
     return close;
 }
 
-
+/*
+ * Fonction de détection des contours sur une image après application de fermetures sucessives
+ * close : image après application de Fermetures
+ */
 cv::Mat detectContours(const cv::Mat &close){
 
     vector<vector<cv::Point>> contours;
@@ -268,6 +277,11 @@ cv::Mat detectContours(const cv::Mat &close){
 }
 
 
+/*
+ * Fonction permettant d'ajouter l'image d'origine avec l'image des contours
+ * sourceImg : Image d'origine
+ * drawing : Image des contours
+ */
 cv::Mat fusionImg(const cv::Mat &sourceImg, const cv::Mat &drawing){
     cv::Mat final_img;
     cv::addWeighted(sourceImg,1,drawing,1,0,final_img);
