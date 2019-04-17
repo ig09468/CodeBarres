@@ -122,10 +122,10 @@ bool modePaysage(const cv::Mat& sourceImg){
  */
 cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     cv::Mat resizeImg;
-    double aspectRatio = sourceImg.rows/sourceImg.cols;
+    double aspectRatio = (double)sourceImg.rows/sourceImg.cols;
     double newSize;
     if(modePaysage(sourceImg)){
-         newSize = (double)(maxSize) / aspectRatio;
+         newSize = maxSize / aspectRatio;
         cv::resize(sourceImg,resizeImg,cv::Size(maxSize, newSize));
     }else{
         newSize = ((double)maxSize * aspectRatio);

@@ -7,7 +7,6 @@
 
 TestPreProcess::TestPreProcess(string &srcImg, int maxSize) : maxSize(maxSize){
     img=openImg(srcImg);
-
 }
 
 TestPreProcess::~TestPreProcess() = default;
@@ -26,7 +25,7 @@ void TestPreProcess::testOpen(){
  */
 void TestPreProcess::testGreyscale() {
     cout << "Lancement Process : Greyscale" << endl;
-    img = greyscale(img);
+    cv::Mat img = greyscale(this->img);
     cout << "GreyScale : OK" << endl;
     //cv::imshow("Greyscale Test", img);
 }
@@ -36,7 +35,7 @@ void TestPreProcess::testGreyscale() {
  */
 void TestPreProcess::testRotate() {
     cout << "Lancement Process : Rotate" << endl;
-    img = rotation(img,-90);
+    cv::Mat img = rotation(this->img,-90);
     cv::imshow("Rotate Test", img);
 }
 
@@ -45,7 +44,7 @@ void TestPreProcess::testRotate() {
  */
 void TestPreProcess::testRollingBall(){
 	cout << "Lancement Process : Rolling Ball" << endl;
-    img = rollingBall(img, 25);
+    cv::Mat img = rollingBall(this->img, 25);
     cout << "Rolling Ball : OK" << endl;
     cv::imshow("Rolling Ball",img);
 }
@@ -56,7 +55,7 @@ void TestPreProcess::testRollingBall(){
  */
 void TestPreProcess::testThreshold() {
     cout << "Lancement Process : Threshold" << endl;
-    img = thresholdAuto(img);
+    cv::Mat img = thresholdAuto(this->img);
     cout << "Threshold : OK" << endl;
     cv::imshow("Threshold Test",img);
 }
@@ -67,7 +66,7 @@ void TestPreProcess::testThreshold() {
  */
 void TestPreProcess::testResize() {
     cout << "Lancement Process : Resize" << endl;
-    img = resize(img, maxSize);
+    cv::Mat img = resize(this->img, maxSize);
     cout << "Resize : OK" << endl;
     cv::imshow("Resize Test", img);
 }
@@ -76,10 +75,43 @@ void TestPreProcess::testResize() {
 
 void TestPreProcess::testHough(){
     cout << "Lancement Process : Hough" << endl;
-    img = hough(img,50);
+    cv::Mat img = hough(this->img,50);
     cout << "Hough : OK" << endl;
     cv::imshow("Hough", img);
 }
+
+void TestPreProcess::testGradient () {
+    cout << "Lancement Process : Gradient" << endl;
+    cv::Mat img = gradient(this->img);
+    cv::imshow("Gradient", img);
+    cout << "Gradient : OK" << endl;
+}
+
+void TestPreProcess::testBinaryBlur () {
+    cout << "Lancement Process : Binary_Blur" << endl;
+    cv::Mat img = binaryBlur(this->img);
+    cv::imshow("Gradient", img);
+    cout << "Binary_Blur : OK" << endl;
+}
+
+void TestPreProcess::testDetectContours () {
+    cout << "Lancement Process : Contours" << endl;
+    cv::Mat imgDrawing = detectContours(img);
+    cv::imshow("Detect Contours", imgDrawing);
+    cv::Mat img = fusionImg(this->img, imgDrawing);
+    cv::imshow("Contours + Origine", img);
+    cout << "Contours : OK" << endl;
+}
+
+
+
+void TestPreProcess::testCloseTraitement () {
+    cout << "Lancement Process : Close" << endl;
+    cv::Mat img = closeTraitement(this->img);
+    cv::imshow("Gradient", img);
+    cout << "Close : OK" << endl;
+}
+
 
 
 /*
@@ -96,6 +128,8 @@ void TestPreProcess::test(){
     testHough();
     //testRotate();
     cv::waitKey(0);
+
+
+
+
 }
-
-
