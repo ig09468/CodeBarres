@@ -125,7 +125,7 @@ cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     double aspectRatio = (double)sourceImg.rows/sourceImg.cols;
     double newSize;
     if(modePaysage(sourceImg)){
-         newSize = maxSize / aspectRatio;
+        newSize = maxSize / aspectRatio;
         cv::resize(sourceImg,resizeImg,cv::Size(maxSize, newSize));
     }else{
         newSize = ((double)maxSize * aspectRatio);
