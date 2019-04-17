@@ -8,6 +8,10 @@
 
 /home/meynadier/ProjectImg/code/EAN.h
 
+/home/meynadier/ProjectImg/code/PreProcess.cpp
+PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
+
 /home/meynadier/ProjectImg/code/PreProcess.h
 opencv2/core/mat.hpp
 -
@@ -39,6 +43,10 @@ test/TestProcess.h
 /home/meynadier/ProjectImg/code/test/TestProcess.h
 Process.h
 /home/meynadier/ProjectImg/code/Process.h
+
+/home/meynadier/ProjectImg/code/test/TestPreProcess.cpp
+TestPreProcess.h
+/home/meynadier/ProjectImg/code/test/TestPreProcess.h
 
 /home/meynadier/ProjectImg/code/test/TestPreProcess.h
 opencv2/core/mat.hpp

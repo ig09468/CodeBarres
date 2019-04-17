@@ -24,6 +24,10 @@ cv::Mat getBackground(const cv::Mat& sourceImg, const int& radius);
 cv::Mat hough(const cv::Mat& sourceImg, const int thresh);
 cv::Mat convexHull(const cv::Mat& sourceImg);
 cv::Mat gradient(const cv::Mat& sourceImg);
+cv::Mat binaryBlur(const cv::Mat& gray);
+cv::Mat closeTraitement(const cv::Mat &binary_blur, int imgRows, int imgCols);
+cv::Mat detectContours(const cv::Mat &close);
+cv::Mat fusionImg(const cv::Mat &sourceImg, const cv::Mat &drawing);
 
 bool modePaysage(const cv::Mat& sourceImg);
 int determinateThreshold(const cv::Mat& sourceImg);
