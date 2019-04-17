@@ -73,9 +73,10 @@ void TestPreProcess::testResize() {
 }
 
 
+
 void TestPreProcess::testHough(){
     cout << "Lancement Process : Hough" << endl;
-    img = hough(img);
+    img = hough(img,50);
     cout << "Hough : OK" << endl;
     cv::imshow("Hough", img);
 }
@@ -87,11 +88,12 @@ void TestPreProcess::testHough(){
 void TestPreProcess::test(){
     cout << "Process TEST" << endl;
     testOpen();
-    testResize();
     testGreyscale();
-    //testRollingBall();
-    testThreshold();
-	//testHough();
+
+    testResize();
+    testRollingBall();
+    //testThreshold();
+    testHough();
     //testRotate();
     cv::waitKey(0);
 }

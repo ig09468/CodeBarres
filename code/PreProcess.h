@@ -21,7 +21,9 @@ cv::Mat rotation(const cv::Mat& sourceImg, int angle);
 cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize);
 cv::Mat rollingBall(const cv::Mat& sourceImg, const int& radius);
 cv::Mat getBackground(const cv::Mat& sourceImg, const int& radius);
-cv::Mat hough(const cv::Mat& sourceImg);
+cv::Mat hough(const cv::Mat& sourceImg, const int thresh);
+cv::Mat convexHull(const cv::Mat& sourceImg);
+cv::Mat gradient(const cv::Mat& sourceImg);
 
 bool modePaysage(const cv::Mat& sourceImg);
 int determinateThreshold(const cv::Mat& sourceImg);
