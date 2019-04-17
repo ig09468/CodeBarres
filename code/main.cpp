@@ -22,21 +22,10 @@ int main(int argc, char *argv[]) {
     ss << cwd << SEP << ".." << SEP << "img" << SEP << TEST_IMAGE;
     src = ss.str();
 
-    //TestProcess testProcess = TestProcess();
-    //testProcess.start();
-    //TestPreProcess test = TestPreProcess(src, 512);
-    //test.test();
+    TestProcess process = TestProcess();
+    process.start();
+    TestPreProcess pre_process = TestPreProcess(src, 512);
+    pre_process.test();
 
-    int scale = 1;
-    int delta = 0;
-    int ddepth = CV_16S;
-
-    cv::Mat img = cv::imread(src,cv::IMREAD_ANYCOLOR);
-    cv::Mat img_copy = cv::Mat(img.size(),cv::IMREAD_ANYCOLOR);
-    cv::resize(img, img_copy,cv::Size(1000,800));
-    cv::Mat gray = greyscale(img_copy);
-
-
-    cv::waitKey(0);
     return 0;
 }
