@@ -25,13 +25,9 @@ private:
     void testRotate();
     void testRollingBall();
     void testHough();
-
     void testGradient ();
-
     void testBinaryBlur ();
-
     void testCloseTraitement();
-
     void testDetectContours ();
 
     cv::Mat img;
