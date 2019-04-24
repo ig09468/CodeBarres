@@ -30,6 +30,7 @@ private:
     void testCloseTraitement();
     void testDetectContours ();
 
+    cv::Mat img_copy;
     cv::Mat img;
     int maxSize;
 };

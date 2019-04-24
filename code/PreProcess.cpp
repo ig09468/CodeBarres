@@ -89,7 +89,7 @@ cv::Mat rotation(const cv::Mat& sourceImg, int angle){
 
     cv::Mat rotateImg;
     cv::Mat matRotation = cv::getRotationMatrix2D(cv::Point(rows/2,cols/2),angle,1);
-    cv::warpAffine(sourceImg,rotateImg,matRotation,sourceImg.size());
+    cv::warpAffine(sourceImg,rotateImg,matRotation,cv::Size(cols,rows));
 
     return rotateImg;
 }
@@ -122,14 +122,14 @@ bool modePaysage(const cv::Mat& sourceImg){
  */
 cv::Mat resize(const cv::Mat& sourceImg, const int& maxSize){
     cv::Mat resizeImg;
-    double aspectRatio = (double)sourceImg.rows/sourceImg.cols;
+    double aspectRatio = (double)sourceImg.rows/(double)sourceImg.cols;
     double newSize;
     if(modePaysage(sourceImg)){
         newSize = maxSize / aspectRatio;
-        cv::resize(sourceImg,resizeImg,cv::Size(maxSize, newSize));
+        cv::resize(sourceImg,resizeImg,cv::Size(newSize,maxSize));
     }else{
-        newSize = ((double)maxSize * aspectRatio);
-        cv::resize(sourceImg, resizeImg, cv::Size(newSize,maxSize));
+        newSize = maxSize * aspectRatio;
+        cv::resize(sourceImg, resizeImg, cv::Size(maxSize,newSize));
     }
     return resizeImg;
 }
@@ -154,7 +154,7 @@ cv::Mat calculHistogram(const cv::Mat& sourceImg){
  * sourceImg : Image source dont on veut calculer la transformer
  * TODO Appliquer la méthode de la transformer de Hough et retourner une image de cette transformer
  */
-cv::Mat hough(const cv::Mat& sourceImg, const int thresh){
+vector<cv::Vec4i> hough(const cv::Mat& sourceImg, const int thresh){
 
     cv::Mat dst, cdst;
     Canny(sourceImg, dst, 50, 200, 3);
@@ -162,14 +162,8 @@ cv::Mat hough(const cv::Mat& sourceImg, const int thresh){
 
     vector<cv::Vec4i> lines;
     HoughLinesP(dst, lines, 1, CV_PI/180, thresh, thresh, 4);
-    for( size_t i = 0; i < lines.size(); i++ )
-    {
-        cv::Vec4i l = lines[i];
-        line( cdst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), cv::Scalar(0,0,255), 3);
-    }
-    imshow("source", sourceImg);
-    imshow("detected lines", cdst);
-    return cdst;
+
+    return lines;
 }
 
 
@@ -230,14 +224,14 @@ cv::Mat gradient(const cv::Mat& gray){
  * Fonction de floutage permettant d'élargir les barres du code barres pour obtenir un seul bloque
  * gray : image en niveau de gris
  */
-cv::Mat binaryBlur(const cv::Mat& gray){
+cv::Mat binaryBlur(const cv::Mat& gray,const int seuil){
     cv::Mat blur,binary_blur;
 
     cv::blur(gray,blur,cv::Size(9,9),cv::Point(-1,-1),cv::BORDER_DEFAULT);
 
     //TODO : Tester plusieurs tresholds et compter les composantes
     // into +> appliquer hough == test de detection (Trouver 100 - 125 - 150 - 175 - 200 )
-    cv::threshold(blur,binary_blur,200,255,cv::THRESH_BINARY);
+    cv::threshold(blur,binary_blur,seuil,255,cv::THRESH_BINARY);
     cv::imshow("Binary Blur", binary_blur);
 
     return binary_blur;
@@ -264,17 +258,13 @@ cv::Mat closeTraitement(const cv::Mat &binary_blur){
  * Fonction de détection des contours sur une image après application de fermetures sucessives
  * close : image après application de Fermetures
  */
-cv::Mat detectContours(const cv::Mat &close){
 
+vector<vector<cv::Point>> detectContours(const cv::Mat &close){
     vector<vector<cv::Point>> contours;
     findContours(close, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE );
-    cv::Mat drawing = cv::Mat::zeros(close.size(),CV_8UC3);
-    for(size_t i = 0 ; i < contours.size(); i++){
-        cv::Scalar color = cv::Scalar(0,0,255);
-        cv::drawContours(drawing,contours,i,color,2,cv::LINE_8);
-    }
-    return drawing;
+    return contours;
 }
+
 
 
 /*
@@ -374,4 +364,55 @@ cv::Mat rollingBall(const cv::Mat& sourceImg, const int& radius) {
 
 cv::Mat rectifValue(cv::Mat sourceImg){
     return sourceImg;
+}
+
+vector<cv::Point> extremPoint(vector<cv::Point> contours){
+    vector<cv::Point> extremum = {contours[0],contours[0]};
+    for(int point = 0 ; point < contours.size() ; point++){
+        extremum[0].x=min(contours[point].x,extremum[0].x);
+        extremum[0].y=min(contours[point].y,extremum[0].y);
+        extremum[1].x=max(contours[point].x,extremum[1].x);
+        extremum[1].y=max(contours[point].y,extremum[1].y);
+        cout << extremum[1]<< endl;
+    }
+    return extremum;
+}
+
+
+void preprocess(string src, string save, int dim){
+    cv::Mat img = openImg(src);
+    cv::Mat img_copy;
+    img = resize(img,dim);
+    img.copyTo(img_copy);
+
+    img_copy = greyscale(img_copy);
+    img_copy = gradient(img_copy);
+    img_copy = binaryBlur(img_copy,140);
+    img_copy = closeTraitement(img_copy);
+    cv::imshow("Close", img_copy);
+    vector<vector<cv::Point>> contours = detectContours(img_copy);
+    vector<cv::Rect> rois;
+    for(int i = 0 ; i < contours.size() ; i++){
+        const vector<cv::Point> extremum = extremPoint(contours[i]);
+        rois.push_back(cv::Rect(extremum[0],extremum[1]));
+    }
+
+    vector<cv::Mat> rois_mat;
+    cv::Mat roi;
+    vector<int> param_compression;
+    param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
+    param_compression.push_back(9);
+    for(int region = 0 ; region < rois.size() ; region++) {
+        img(rois[region]).copyTo(roi);
+        cv::Mat roi_binary=thresholdAuto(roi);
+        vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
+        if(roi_hough.size()>10){
+            roi=rotation(roi,roi_hough[0][0]-CV_PI/2);
+            cv::imwrite(save+"roi.png",roi,param_compression);
+        }
+    }
+
+
+    cv::waitKey(0);
+
 }

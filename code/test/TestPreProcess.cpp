@@ -7,6 +7,7 @@
 
 TestPreProcess::TestPreProcess(string &srcImg, int maxSize) : maxSize(maxSize){
     img=openImg(srcImg);
+    img.copyTo(img_copy);
 }
 
 TestPreProcess::~TestPreProcess() = default;
@@ -25,9 +26,9 @@ void TestPreProcess::testOpen(){
  */
 void TestPreProcess::testGreyscale() {
     cout << "Lancement Process : Greyscale" << endl;
-    cv::Mat img = greyscale(this->img);
+    this->img_copy = greyscale(this->img_copy);
+    cv::imshow("Greyscale Test", this->img_copy);
     cout << "GreyScale : OK" << endl;
-    //cv::imshow("Greyscale Test", img);
 }
 
 /*
@@ -35,8 +36,8 @@ void TestPreProcess::testGreyscale() {
  */
 void TestPreProcess::testRotate() {
     cout << "Lancement Process : Rotate" << endl;
-    cv::Mat img = rotation(this->img,-90);
-    cv::imshow("Rotate Test", img);
+    this->img_copy = rotation(this->img_copy,-90);
+    cv::imshow("Rotate Test", this->img_copy);
 }
 
 /*
@@ -44,9 +45,9 @@ void TestPreProcess::testRotate() {
  */
 void TestPreProcess::testRollingBall(){
 	cout << "Lancement Process : Rolling Ball" << endl;
-    cv::Mat img = rollingBall(this->img, 25);
+    this->img_copy = rollingBall(this->img_copy, 25);
     cout << "Rolling Ball : OK" << endl;
-    cv::imshow("Rolling Ball",img);
+    cv::imshow("Rolling Ball",this->img_copy);
 }
 
 
@@ -55,9 +56,9 @@ void TestPreProcess::testRollingBall(){
  */
 void TestPreProcess::testThreshold() {
     cout << "Lancement Process : Threshold" << endl;
-    cv::Mat img = thresholdAuto(this->img);
+    this->img_copy = thresholdAuto(this->img_copy);
     cout << "Threshold : OK" << endl;
-    cv::imshow("Threshold Test",img);
+    cv::imshow("Threshold Test",this->img_copy);
 }
 
 
@@ -66,40 +67,46 @@ void TestPreProcess::testThreshold() {
  */
 void TestPreProcess::testResize() {
     cout << "Lancement Process : Resize" << endl;
-    cv::Mat img = resize(this->img, maxSize);
+    this->img = resize(this->img, maxSize);
+    this->img_copy = resize(this->img_copy, maxSize);
     cout << "Resize : OK" << endl;
-    cv::imshow("Resize Test", img);
+    cv::imshow("Resize Test", this->img_copy);
 }
 
 
 
 void TestPreProcess::testHough(){
     cout << "Lancement Process : Hough" << endl;
-    cv::Mat img = hough(this->img,50);
+//    this->img_copy = hough(this->img_copy,50);
     cout << "Hough : OK" << endl;
     cv::imshow("Hough", img);
 }
 
 void TestPreProcess::testGradient () {
     cout << "Lancement Process : Gradient" << endl;
-    cv::Mat img = gradient(this->img);
-    cv::imshow("Gradient", img);
+    this->img_copy = gradient(this->img_copy);
+    cv::imshow("Gradient", img_copy);
     cout << "Gradient : OK" << endl;
 }
 
 void TestPreProcess::testBinaryBlur () {
     cout << "Lancement Process : Binary_Blur" << endl;
-    cv::Mat img = binaryBlur(this->img);
-    cv::imshow("Gradient", img);
+    this->img_copy = binaryBlur(this->img_copy,100);
+    cv::imshow("Binary_Blur", this->img_copy);
     cout << "Binary_Blur : OK" << endl;
 }
 
 void TestPreProcess::testDetectContours () {
     cout << "Lancement Process : Contours" << endl;
-    cv::Mat imgDrawing = detectContours(img);
-    cv::imshow("Detect Contours", imgDrawing);
-    cv::Mat img = fusionImg(this->img, imgDrawing);
-    cv::imshow("Contours + Origine", img);
+    vector<vector<cv::Point>> contours = detectContours(this->img_copy);
+    cv::Mat drawing = cv::Mat::zeros(img_copy.size(),CV_8UC3);
+    for(size_t i = 0 ; i < contours.size(); i++){
+        cv::Scalar color = cv::Scalar(0,0,255);
+        cv::drawContours(drawing,contours,i,color,2,cv::LINE_8);
+    }
+    cv::imshow("Detect Contours", drawing);
+    this->img_copy = fusionImg(this->img, drawing);
+    cv::imshow("Contours + Origine", this->img_copy);
     cout << "Contours : OK" << endl;
 }
 
@@ -107,8 +114,8 @@ void TestPreProcess::testDetectContours () {
 
 void TestPreProcess::testCloseTraitement () {
     cout << "Lancement Process : Close" << endl;
-    cv::Mat img = closeTraitement(this->img);
-    cv::imshow("Gradient", img);
+    this->img_copy = closeTraitement(this->img_copy);
+    cv::imshow("Close", this->img_copy);
     cout << "Close : OK" << endl;
 }
 
@@ -120,12 +127,15 @@ void TestPreProcess::testCloseTraitement () {
 void TestPreProcess::test(){
     cout << "Process TEST" << endl;
     testOpen();
-    testGreyscale();
-
     testResize();
-    testRollingBall();
+    testGreyscale();
+    testGradient();
+    testBinaryBlur();
+    testCloseTraitement();
+    testDetectContours();
+    //testRollingBall();
     //testThreshold();
-    testHough();
+    //testHough();
     //testRotate();
     cv::waitKey(0);
 

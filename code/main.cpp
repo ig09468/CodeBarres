@@ -6,26 +6,17 @@
 #include "Process.h"
 #include <unistd.h>
 
-string TEST_IMAGE = "etp2/cb1.jpg";
-string SEP = "/";
+static string TEST_IMAGE = "etp2/E2.jpg";
+static string SEP = "/";
 
 #ifdef _WIN32
     SEP = '\\';
 #endif
 
 int main(int argc, char *argv[]) {
-    string src;
-    stringstream ss;
-
-    char cwd[100000];
-    getcwd(cwd, sizeof(cwd));
-    ss << cwd << SEP << ".." << SEP << "img" << SEP << TEST_IMAGE;
-    src = ss.str();
-
-    TestProcess process = TestProcess();
-    process.start();
-    TestPreProcess pre_process = TestPreProcess(src, 512);
-    pre_process.test();
-
+    string src = "/home/meynadier/ProjectImg/img/etp2/E2.jpg";
+    string save = "/home/meynadier/ProjectImg/img/result/";
+    preprocess(src, save,1000);
+    cv::waitKey(0);
     return 0;
 }
