@@ -157,7 +157,7 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
                 colorColumnIsBlack=isBlack(pixel);
                 continue;
             }
-            tailleBar = (colSize*ratio);
+            tailleBar = colSize*ratio;
             if((tailleBar-(int)tailleBar) > 0.5){
                 convert.push_back((int)(tailleBar+1));
             } else{
@@ -171,4 +171,51 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
 
     }
     return convertByteToEAN(convert);
+}
+
+void start(string src, string save, int dim){
+    cv::Mat img = openImg(src);
+    cv::Mat img_copy;
+    img = resize(img,dim);
+    img.copyTo(img_copy);
+
+    img_copy = greyscale(img_copy);
+    img_copy = gradient(img_copy);
+    img_copy = binaryBlur(img_copy,140);
+    img_copy = closeTraitement(img_copy);
+    cv::imshow("Close", img_copy);
+    vector<vector<cv::Point>> contours = detectContours(img_copy);
+    vector<cv::Rect> rois;
+    for(int i = 0 ; i < contours.size() ; i++){
+        const vector<cv::Point> extremum = extremPoint(contours[i]);
+        rois.push_back(cv::Rect(extremum[0],extremum[1]));
+    }
+
+    vector<cv::Mat> rois_mat;
+    cv::Mat roi;
+    vector<int> param_compression;
+    param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
+    param_compression.push_back(9);
+    for(int region = 0 ; region < rois.size() ; region++) {
+        img(rois[region]).copyTo(roi);
+        cv::Mat roi_binary=thresholdAuto(roi);
+        vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
+        if(roi_hough.size()>50){
+            if(modePaysage(roi)){
+                roi=thresholdAuto(rotation(roi, -90));
+            }
+            break;
+        }
+    }
+    vector<vector<int>> result;
+    for(int rows = 0 ; rows < roi.rows;rows++){
+        result.push_back(readingEAN(roi,rows));
+    }
+    for(vector<int> vecteur : result){
+        cout << "result 0 : ";
+        for(int affiche = 0 ; affiche< vecteur.size(); affiche++){
+            cout << vecteur[affiche] << " ";
+        }
+        cout << endl;
+    }
 }

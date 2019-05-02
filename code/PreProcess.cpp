@@ -88,8 +88,15 @@ cv::Mat rotation(const cv::Mat& sourceImg, int angle){
     const int cols = sourceImg.cols;
 
     cv::Mat rotateImg;
-    cv::Mat matRotation = cv::getRotationMatrix2D(cv::Point(rows/2,cols/2),angle,1);
-    cv::warpAffine(sourceImg,rotateImg,matRotation,cv::Size(cols,rows));
+    cv::Point2f center((sourceImg.cols-1)/2.0,(sourceImg.rows-1)/2.0);
+    cv::Mat matRotation = cv::getRotationMatrix2D(center,angle,1);
+
+    cv::Rect bbox = cv::RotatedRect(cv::Point2f(),sourceImg.size(),angle).boundingRect2f();
+
+    matRotation.at<double>(0,2)+= bbox.width/2.0 - sourceImg.cols/2;
+    matRotation.at<double>(1,2)+= bbox.height/2.0 - sourceImg.rows/2;
+
+    cv::warpAffine(sourceImg,rotateImg,matRotation,bbox.size());
 
     return rotateImg;
 }
@@ -379,40 +386,3 @@ vector<cv::Point> extremPoint(vector<cv::Point> contours){
 }
 
 
-void preprocess(string src, string save, int dim){
-    cv::Mat img = openImg(src);
-    cv::Mat img_copy;
-    img = resize(img,dim);
-    img.copyTo(img_copy);
-
-    img_copy = greyscale(img_copy);
-    img_copy = gradient(img_copy);
-    img_copy = binaryBlur(img_copy,140);
-    img_copy = closeTraitement(img_copy);
-    cv::imshow("Close", img_copy);
-    vector<vector<cv::Point>> contours = detectContours(img_copy);
-    vector<cv::Rect> rois;
-    for(int i = 0 ; i < contours.size() ; i++){
-        const vector<cv::Point> extremum = extremPoint(contours[i]);
-        rois.push_back(cv::Rect(extremum[0],extremum[1]));
-    }
-
-    vector<cv::Mat> rois_mat;
-    cv::Mat roi;
-    vector<int> param_compression;
-    param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
-    param_compression.push_back(9);
-    for(int region = 0 ; region < rois.size() ; region++) {
-        img(rois[region]).copyTo(roi);
-        cv::Mat roi_binary=thresholdAuto(roi);
-        vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
-        if(roi_hough.size()>10){
-            roi=rotation(roi,roi_hough[0][0]-CV_PI/2);
-            cv::imwrite(save+"roi.png",roi,param_compression);
-        }
-    }
-
-
-    cv::waitKey(0);
-
-}

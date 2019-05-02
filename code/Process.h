@@ -9,7 +9,7 @@
 #include <opencv2/core/mat.hpp>
 #include <iostream>
 #include "EAN.h"
-
+#include "PreProcess.h"
 using namespace std;
 
 vector<int> readingEAN(const cv::Mat& barCode, const int& row);
@@ -19,6 +19,7 @@ int searchFirstDelimiter(const cv::Mat &barCode, const int &row);
 int searchStartBarCode(const cv::Mat &barCode, const int &row, const int& start, const double& ratio);
 vector<int> convertByteToEAN(const vector<int>& convert);
 bool isBlack(const int& value);
+void start(string src, string save, int dim);
 
 
 #endif //CODEBARRES_PROCESS_H
