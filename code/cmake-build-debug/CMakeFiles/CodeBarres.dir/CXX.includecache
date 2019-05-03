@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/meynadier/ProjectImg/code/PreProcess.cpp
-PreProcess.h
-/home/meynadier/ProjectImg/code/PreProcess.h
+/home/meynadier/ProjectImg/code/EAN.h
 
 /home/meynadier/ProjectImg/code/PreProcess.h
 opencv2/core/mat.hpp
@@ -19,6 +17,20 @@ iostream
 -
 string
 -
+
+/home/meynadier/ProjectImg/code/Process.cpp
+Process.h
+/home/meynadier/ProjectImg/code/Process.h
+
+/home/meynadier/ProjectImg/code/Process.h
+opencv2/core/mat.hpp
+-
+iostream
+-
+EAN.h
+/home/meynadier/ProjectImg/code/EAN.h
+PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

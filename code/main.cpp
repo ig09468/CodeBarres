@@ -6,7 +6,7 @@
 #include "Process.h"
 #include <unistd.h>
 
-static string TEST_IMAGE = "etp2/E2.jpg";
+static string TEST_IMAGE = "etp2/2.jpg";
 static string SEP = "/";
 
 #ifdef _WIN32
@@ -14,7 +14,7 @@ static string SEP = "/";
 #endif
 
 int main(int argc, char *argv[]) {
-    string src = "/home/meynadier/ProjectImg/img/etp2/E2.jpg";
+    string src = "/home/meynadier/ProjectImg/img/etp2/2.jpg";
     string save = "/home/meynadier/ProjectImg/img/result/";
     start(src, save,1000);
     cv::waitKey(0);
