@@ -17,32 +17,23 @@ Type d'images : Présence d'un code-barres dans l'image
 
 ## Objectifs
 
-### Etape 1
+### Type 1
 1. Paramètres
 - Type d'image 
 >Image d'un simple code-barres orienté dans n'importe quelle direction sur fond **blanc**
 - Qualité de l'image
 > Propre sans défaut, code-barres parfait
-2. Techniques
-- Application d'une transformée de Hough pour obtenir les lignes
-- Application d'une rotation de l'image pour obtenir des lignes verticales ou horizontales
-- Calcul du ratio de redimension de l'image par rapport à la bar minimal du code-barres
-- Application du ratio à la redimension de l'image en fonction de l'orientation de l'image (Paysage ou Portrait)
-- Récupération d'une portion du code-barres pour accélérer la lecture
-- Lecture du code-barres en fonction de la nomenclature EAN
 
-
-### Etape 2
+### Type 2
 
 1. Paramètres
 - Type d'images
 > Photo d'un simple code-barres orientée correctement sur fond quelconque
 - Qualité de l'image
 > Mauvais éclairage
-2. Technique
-- Application de la technique du Rolling Ball
 
-### Etape 3
+
+### Type 3
 
 1. Paramètres
 - Type d'images
@@ -51,7 +42,7 @@ Type d'images : Présence d'un code-barres dans l'image
 > Mauvais éclairage
 
 
-### Etape 4
+### Type 4
 
 1. Paramètres
 - Type d'images
@@ -59,22 +50,13 @@ Type d'images : Présence d'un code-barres dans l'image
 - Qualité de l'image
 >Propre éclairage normal et mauvais éclairage
 
-
-### Etape 5
-
-1. Paramètres
-- Type d'images
->Image contenant plusieurs code-barres dans l'image sur fond **blanc**
-- Qualité de l'image
->Propre sans autres contenues
-
-### Etape 6
+### Type 5
 
 1. Paramètres
 - Type d'images
->Photos contenant plusieurs codes-barres sur un fond quelconques (produits) et non délimité
+>Photo ne contenant aucun code-barres
 - Qualité de l'image
->Propre avec un éclairage normal puis mauvais éclairage
+> 
 
 ## Sources
 
