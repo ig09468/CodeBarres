@@ -18,15 +18,12 @@ Type d'images : Présence d'un code-barres dans l'image
 ## Objectifs
 
 ### Type 1
-1. Paramètres
 - Type d'image 
 >Image d'un simple code-barres orienté dans n'importe quelle direction sur fond **blanc**
 - Qualité de l'image
 > Propre sans défaut, code-barres parfait
 
 ### Type 2
-
-1. Paramètres
 - Type d'images
 > Photo d'un simple code-barres orientée correctement sur fond quelconque
 - Qualité de l'image
@@ -34,8 +31,6 @@ Type d'images : Présence d'un code-barres dans l'image
 
 
 ### Type 3
-
-1. Paramètres
 - Type d'images
 > Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
 - Qualité de l'image
@@ -43,20 +38,15 @@ Type d'images : Présence d'un code-barres dans l'image
 
 
 ### Type 4
-
-1. Paramètres
 - Type d'images
 >Photo contenant l'ensemble du produit et son code-barres
 - Qualité de l'image
 >Propre éclairage normal et mauvais éclairage
 
 ### Type 5
-
-1. Paramètres
 - Type d'images
 >Photo ne contenant aucun code-barres
-- Qualité de l'image
-> 
+ 
 
 ## Sources
 
