@@ -48,6 +48,9 @@ Type d'images : Présence d'un code-barres dans l'image
 >Photo ne contenant aucun code-barres
  
 
+## Techniques
+
+
 ## Sources
 
 ### Web
