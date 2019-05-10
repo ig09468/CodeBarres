@@ -174,48 +174,60 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
 }
 
 void start(string src, string save, int dim){
-    cv::Mat img = openImg(src);
-    cv::Mat img_copy;
-    img = resize(img,dim);
-    img.copyTo(img_copy);
 
-    img_copy = greyscale(img_copy);
-    img_copy = gradient(img_copy);
-    img_copy = binaryBlur(img_copy,140);
-    img_copy = closeTraitement(img_copy);
-    cv::imshow("Close", img_copy);
-    vector<vector<cv::Point>> contours = detectContours(img_copy);
-    vector<cv::Rect> rois;
-    for(int i = 0 ; i < contours.size() ; i++){
-        const vector<cv::Point> extremum = extremPoint(contours[i]);
-        rois.push_back(cv::Rect(extremum[0],extremum[1]));
+    vector<cv::Mat> img_block;
+    for(int nombre_image=1;nombre_image<17;nombre_image++){
+        string src_copy=src;
+        img_block.push_back(openImg(src_copy+=std::to_string(nombre_image)+".jpg"));
     }
 
-    vector<cv::Mat> rois_mat;
-    cv::Mat roi;
-    vector<int> param_compression;
-    param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
-    param_compression.push_back(9);
-    for(int region = 0 ; region < rois.size() ; region++) {
-        img(rois[region]).copyTo(roi);
-        cv::Mat roi_binary=thresholdAuto(roi);
-        vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
-        if(roi_hough.size()>50){
-            if(modePaysage(roi)){
-                roi=thresholdAuto(rotation(roi, -90));
+
+    for(cv::Mat img : img_block){
+        cv::Mat img_copy;
+        img = resize(img,dim);
+        img.copyTo(img_copy);
+
+
+        img_copy = greyscale(img_copy);
+        img_copy = gradient(img_copy);
+        img_copy = binaryBlur(img_copy,140);
+        img_copy = closeTraitement(img_copy);
+        cv::imshow("Close", img_copy);
+        vector<vector<cv::Point>> contours = detectContours(img_copy);
+        vector<cv::Rect> rois;
+        for(int i = 0 ; i < contours.size() ; i++){
+            const vector<cv::Point> extremum = extremPoint(contours[i]);
+            rois.push_back(cv::Rect(extremum[0],extremum[1]));
+        }
+
+        vector<cv::Mat> rois_mat;
+        cv::Mat roi;
+        int enregistrement = 1;
+        vector<int> param_compression;
+        param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
+        param_compression.push_back(9);
+        for(int region = 0 ; region < rois.size() ; region++) {
+            img(rois[region]).copyTo(roi);
+            cv::Mat roi_binary=thresholdAuto(roi);
+            vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
+            if(roi_hough.size()>55){
+                const int angle = 180-(180-(90+roi_hough[0][2]));
+                roi_binary=rotation(roi_binary, angle);
+                cv::imwrite(save+std::to_string(enregistrement++)+".png",roi,param_compression);
+                break;
             }
-            break;
+        }
+        vector<vector<int>> result;
+        for(int rows = 0 ; rows < roi.rows;rows++){
+            result.push_back(readingEAN(roi,rows));
+        }
+        for(vector<int> vecteur : result){
+            cout << "result  : ";
+            for(int affiche = 0 ; affiche< vecteur.size(); affiche++){
+                cout << vecteur[affiche] << " ";
+            }
+            cout << endl;
         }
     }
-    vector<vector<int>> result;
-    for(int rows = 0 ; rows < roi.rows;rows++){
-        result.push_back(readingEAN(roi,rows));
-    }
-    for(vector<int> vecteur : result){
-        cout << "result 0 : ";
-        for(int affiche = 0 ; affiche< vecteur.size(); affiche++){
-            cout << vecteur[affiche] << " ";
-        }
-        cout << endl;
-    }
+
 }
