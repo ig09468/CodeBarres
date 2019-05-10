@@ -50,6 +50,12 @@ Type d'images : Présence d'un code-barres dans l'image
 
 ## Techniques
 
+1. Filtre de Sobel
+2. Filtre Moyenneur
+3. Binarisation (filtre variant)
+4. Fermture
+5. Transformée de Hough
+6. Binarisation locale OSTU
 
 ## Sources
 
