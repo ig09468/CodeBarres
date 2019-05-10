@@ -16,7 +16,7 @@ static string SEP = "/";
 int main(int argc, char *argv[]) {
     string src = "/home/meynadier/ProjectImg/img/sans/";
     string save = "/home/meynadier/ProjectImg/img/result/";
-    start(src, save,512);
+    start(src, save,514);
     cv::waitKey(0);
     return 0;
 }
