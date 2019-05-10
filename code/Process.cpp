@@ -173,7 +173,40 @@ vector<int> readingEAN(const cv::Mat& barCode, const int& row){
     return convertByteToEAN(convert);
 }
 
+
+
+/*
+ * Fonction permettant de comparer 2 vecteurs d'entier pour retourner le nombre de chiffre identique
+ *
+ */
+int compareVector(vector<int> &vector1,vector<int> &vector2 ){
+    int result=0;
+    for(int value = 0; value<vector1.size();value++){
+        if(vector1[value]==vector2[value] && (vector2[value]!=-1 || vector1[value]!=-1))
+            result++;
+    }
+    return result;
+}
+
+
+/*
+ * Fonction permettant de comparer les lectures d'une image
+ */
+
+
+
+/*
+ * Fonction lançant les processus pour déterminer si un code barres est présent où non dans l'ensemble d'images donné
+ * src : lien où se trouvent les images
+ * save : lien pour sauvegarder les images résultats
+ * dim : taille de redimension des images traitées
+ */
 void start(string src, string save, int dim){
+
+    int enregistrement = 1;
+    vector<int> param_compression;
+    param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
+    param_compression.push_back(9);
 
     vector<cv::Mat> img_block;
     for(int nombre_image=1;nombre_image<17;nombre_image++){
@@ -190,44 +223,44 @@ void start(string src, string save, int dim){
 
         img_copy = greyscale(img_copy);
         img_copy = gradient(img_copy);
-        img_copy = binaryBlur(img_copy,140);
-        img_copy = closeTraitement(img_copy);
-        cv::imshow("Close", img_copy);
-        vector<vector<cv::Point>> contours = detectContours(img_copy);
-        vector<cv::Rect> rois;
-        for(int i = 0 ; i < contours.size() ; i++){
-            const vector<cv::Point> extremum = extremPoint(contours[i]);
-            rois.push_back(cv::Rect(extremum[0],extremum[1]));
+
+        for(int seuil = 25; seuil <= 125; seuil+=25){
+            img_copy = binaryBlur(img_copy,100+seuil);
+            cv::imwrite(save+"blur"+std::to_string(enregistrement)+".png",img_copy,param_compression);
+            img_copy = closeTraitement(img_copy);
+            cv::imwrite(save+"fermeture"+std::to_string(enregistrement)+".png",img_copy,param_compression);
+            vector<vector<cv::Point>> contours = detectContours(img_copy);
+            vector<cv::Rect> rois;
+            for(int i = 0 ; i < contours.size() ; i++){
+                const vector<cv::Point> extremum = extremPoint(contours[i]);
+                rois.push_back(cv::Rect(extremum[0],extremum[1]));
+            }
+
+            vector<cv::Mat> rois_mat;
+            cv::Mat roi;
+            for(int region = 0 ; region < rois.size() ; region++) {
+                img(rois[region]).copyTo(roi);
+                cv::Mat roi_binary=thresholdAuto(roi);
+                vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
+                if(roi_hough.size()>40){
+                    const int angle = 180-(180-(90+roi_hough[0][2]));
+                    roi_binary=rotation(roi, angle);
+                    break;
+                }
+            }
+            vector<vector<int>> result_roi;
+            for(int rows = 0 ; rows < roi.rows;rows++){
+                result_roi.push_back(readingEAN(roi,rows));
+            }
+            for(vector<int> vecteur : result_roi){
+                cout << "result  : ";
+                for(int affiche = 0 ; affiche< vecteur.size(); affiche++){
+                    cout << vecteur[affiche] << " ";
+                }
+                cout << endl;
+            }
         }
 
-        vector<cv::Mat> rois_mat;
-        cv::Mat roi;
-        int enregistrement = 1;
-        vector<int> param_compression;
-        param_compression.push_back(cv::IMWRITE_PNG_COMPRESSION);
-        param_compression.push_back(9);
-        for(int region = 0 ; region < rois.size() ; region++) {
-            img(rois[region]).copyTo(roi);
-            cv::Mat roi_binary=thresholdAuto(roi);
-            vector<cv::Vec4i> roi_hough = hough(roi_binary,20);
-            if(roi_hough.size()>55){
-                const int angle = 180-(180-(90+roi_hough[0][2]));
-                roi_binary=rotation(roi_binary, angle);
-                cv::imwrite(save+std::to_string(enregistrement++)+".png",roi,param_compression);
-                break;
-            }
-        }
-        vector<vector<int>> result;
-        for(int rows = 0 ; rows < roi.rows;rows++){
-            result.push_back(readingEAN(roi,rows));
-        }
-        for(vector<int> vecteur : result){
-            cout << "result  : ";
-            for(int affiche = 0 ; affiche< vecteur.size(); affiche++){
-                cout << vecteur[affiche] << " ";
-            }
-            cout << endl;
-        }
     }
 
 }

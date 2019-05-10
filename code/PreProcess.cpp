@@ -363,16 +363,12 @@ cv::Mat rollingBall(const cv::Mat& sourceImg, const int& radius) {
     return result;
 }
 
+
+
 /*
- * Fonction permettant de réctifier les valeurs optimales qui sont au delà de 255 et inférieur à 0
- * sourceImg : Imagesource auquel on veut appliquer la modification
- * TODO Vérifier que dans la matrice les valeurs sont bien comprises entre 255 et 0
+ * Fonction permettant de déterminer les points extremes d'une ROI
+ * contours : vecteur contenant les points de contours de la ROI
  */
-
-cv::Mat rectifValue(cv::Mat sourceImg){
-    return sourceImg;
-}
-
 vector<cv::Point> extremPoint(vector<cv::Point> contours){
     vector<cv::Point> extremum = {contours[0],contours[0]};
     for(int point = 0 ; point < contours.size() ; point++){
