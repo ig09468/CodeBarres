@@ -19,27 +19,27 @@ Type d'images : Présence d'un code-barres dans l'image
 
 ### Type 1
 - Type d'image 
->Image d'un simple code-barres orienté dans n'importe quelle direction sur fond **blanc**
+>Image d'un simple code-barres orienté sur fond **blanc**
 - Qualité de l'image
 > Propre sans défaut, code-barres parfait
 
 ### Type 2
 - Type d'images
-> Photo d'un simple code-barres orientée correctement sur fond quelconque
+> Photo d'un simple code-barres orientée dans n'importe quelle direction sur un produit plat
 - Qualité de l'image
 > Mauvais éclairage
 
 
 ### Type 3
 - Type d'images
-> Photo d'un simple code-barres orienté dans n'importe quelle direction sur fond quelconque
+> Photo d'un simple code-barres orienté dans n'importe quelle direction sur un produit incurvé
 - Qualité de l'image
 > Mauvais éclairage
 
 
 ### Type 4
 - Type d'images
->Photo contenant l'ensemble du produit et son code-barres
+> Photo contenant deux codes-barres dans l'image
 - Qualité de l'image
 >Propre éclairage normal et mauvais éclairage
 
