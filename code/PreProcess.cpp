@@ -162,14 +162,10 @@ cv::Mat calculHistogram(const cv::Mat& sourceImg){
  * TODO Appliquer la méthode de la transformer de Hough et retourner une image de cette transformer
  */
 vector<cv::Vec4i> hough(const cv::Mat& sourceImg, const int thresh){
-
-    cv::Mat dst, cdst;
+    cv::Mat dst;
     Canny(sourceImg, dst, 50, 200, 3);
-    cvtColor(dst, cdst, cv::COLOR_GRAY2BGR);
-
     vector<cv::Vec4i> lines;
-    HoughLinesP(dst, lines, 1, CV_PI/180, thresh, thresh, 4);
-
+    HoughLinesP(dst, lines, 1, CV_PI/180, thresh, 0, 0);
     return lines;
 }
 
@@ -239,7 +235,6 @@ cv::Mat binaryBlur(const cv::Mat& gray,const int seuil){
     //TODO : Tester plusieurs tresholds et compter les composantes
     // into +> appliquer hough == test de detection (Trouver 100 - 125 - 150 - 175 - 200 )
     cv::threshold(blur,binary_blur,seuil,255,cv::THRESH_BINARY);
-    cv::imshow("Binary Blur", binary_blur);
 
     return binary_blur;
 }
@@ -376,7 +371,6 @@ vector<cv::Point> extremPoint(vector<cv::Point> contours){
         extremum[0].y=min(contours[point].y,extremum[0].y);
         extremum[1].x=max(contours[point].x,extremum[1].x);
         extremum[1].y=max(contours[point].y,extremum[1].y);
-        cout << extremum[1]<< endl;
     }
     return extremum;
 }

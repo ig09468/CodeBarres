@@ -18,10 +18,6 @@ iostream
 string
 -
 
-/home/meynadier/ProjectImg/code/Process.cpp
-Process.h
-/home/meynadier/ProjectImg/code/Process.h
-
 /home/meynadier/ProjectImg/code/Process.h
 opencv2/core/mat.hpp
 -
@@ -45,6 +41,8 @@ test/TestProcess.h
 /home/meynadier/ProjectImg/code/test/TestProcess.h
 Process.h
 /home/meynadier/ProjectImg/code/Process.h
+PreProcess.h
+/home/meynadier/ProjectImg/code/PreProcess.h
 unistd.h
 -
 
