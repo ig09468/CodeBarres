@@ -77,3 +77,7 @@ Type d'images : Présence d'un code-barres dans l'image
 - Traitement de l'image et de la vidéo, Rachid Belaroussi (2010)
 - Introduction au traitement d'images, Diane Lingrand (2004)
 - Introduction au traitement mathématique des images - méthodes déterministes, Maïtine Bergounioux (2015)
+
+### Rapport
+
+[Lien](https://drive.google.com/file/d/1GIOjSrDKtzNUyo-k0F4loPeC5sHdL2tF/view?usp=sharing)
