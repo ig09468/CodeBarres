@@ -17,6 +17,10 @@ Type d'images : Présence d'un code-barres dans l'image
 1. [Langage C++](https://devdocs.io/cpp/)
 2. [Librairie OpenCV](https://docs.opencv.org/4.0.1/)
 
+### Rapport
+
+Présentation : [Lien](https://drive.google.com/file/d/1GIOjSrDKtzNUyo-k0F4loPeC5sHdL2tF/view?usp=sharing)
+
 ## Objectifs
 
 ### Type 1
@@ -78,6 +82,4 @@ Type d'images : Présence d'un code-barres dans l'image
 - Introduction au traitement d'images, Diane Lingrand (2004)
 - Introduction au traitement mathématique des images - méthodes déterministes, Maïtine Bergounioux (2015)
 
-### Rapport
 
-[Lien](https://drive.google.com/file/d/1GIOjSrDKtzNUyo-k0F4loPeC5sHdL2tF/view?usp=sharing)
